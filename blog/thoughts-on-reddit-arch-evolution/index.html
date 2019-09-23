@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /><title>Thoughts on &#34;The Evolution of Reddit.com&#39;s Architecture&#34; - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/blog/">Blog</a>
+	
+	<a href="/blog/index.xml">Feed</a>
+</div>
+
+
+		<div class="title-text">
+			<h1>Thoughts on &#34;The Evolution of Reddit.com&#39;s Architecture&#34;</h1>
+			<time class="post-date" datetime="2018-24-09">Sep 24, 2018</time>
+		</div>
+
+		<div class="content">
+			<p>As someone who claims to try and design systems for others to run their applications on, I try to learn about how systems are used in practice. I recently found <a href="https://www.infoq.com/presentations/reddit-architecture-evolution">this talk</a> on the architecture of reddit.com and summarized some of my thoughts on it below.</p>
+
+<p>As the fifth <a href="https://www.alexa.com/topsites/countries/US">most popular</a> website in the US, reddit faces a few scaling challenges. First, the website receives a high volume of traffic which makes avoiding slow resources (e.g. disk, DB) critical. Second, the collaborative nature of the site enables anyone to participate in any discussion or &ldquo;subreddit&rdquo; (forum) which results in certain subreddits and threads becoming hotspots. Finally, the data model allows readers to peer into portions of a resource instead of the entire resource (subtrees of comment trees).</p>
+
+<p>Reddit has tried to address these challenges by building a custom data management layer on top of existing storage systems. Reddit&rsquo;s various internal services rely on a combination of Postgres, Cassandra, and memcached to manage everything.</p>
+
+<div style="max-width: 450px; margin: 0 auto; text-align: center">
+<img alt="reddit-arch" src="/blog-static/thoughts-on-reddit-arch-evolution/reddit-arch.jpg">
+<br>
+Reddit data management layer
+</div>
+
+<p>Reddit&rsquo;s data management layer appears to have been built in an ad hoc manner that has resulted in sources of consistency violations and complexity. In their current architecture, reddit does not maintain a single source of truth, but rather updates multiple storage systems directly. Pushing this logic into the application more or less guarantees that consistency violations will occur. To be fair, many people seem to think that this is not a big deal for social networking sites. However, there are at least some types of violations that are problematic for reddit: the example given in the talk was that causal consistency is desirable for comment trees. In order to fix these inconsistencies and to offload some updates from the request path, reddit makes use of background workers that wait for tasks on work queues.</p>
+
+<p>The complexity of managing multiple data sources in addition to background tasks is fragile and has led to multiple outages. At the very least, Reddit has suffered from head-of-line blocking, lock contention, unbounded queue growth, and load imbalances. Almost all of these issues stem from the use of background workers which is only necessary because reddit does not use a storage system that provides them with adequate functionality or performance.</p>
+
+<p>While you might say that reddit&rsquo;s workload is very specific and that it makes sense that they build their own data management system, I wonder if there are some general learnings that could be used more generally. Then, it would make sense to build out storage systems that provided much of the functionality—performance and features—reddit currently builds themselves. The talk didn&rsquo;t contain too many details on this, but some of the desirable features appear to be have entities with a flexible number of attributes, in-memory reads, high throughput, efficient writes, and support for multi-get operations. I mention efficient writes because the talk mentions batching updates for efficiency, but this seems possible to achieve (while maintaining consistency) with the use of an internal log and reordering of updates.</p>
+
+<p>After listening to the talk, I am somewhat amazed that reddit works as well as it does. At their scale, I would have expected reddit to have moved away from python completely on their request handling path. I am also surprised that building a storage system the way they did has worked. In my experience, a lot of care is required when it comes to managing data. Otherwise, bad things start to happen very quickly. Maybe I have just been too indoctrinated in a particular (Google-like) way of doing things.</p>
+
+		</div>
+	</div>
+</body>
+</html>

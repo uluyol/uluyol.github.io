@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /><title>Container-Based Hosting - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/blog/">Blog</a>
+	
+	<a href="/blog/index.xml">Feed</a>
+</div>
+
+
+		<div class="title-text">
+			<h1>Container-Based Hosting</h1>
+			<time class="post-date" datetime="2017-28-09">Sep 28, 2017</time>
+		</div>
+
+		<div class="content">
+			
+
+<p>I recently <a href="https://uluyol.xyz/blog/2017/08/11/this-blog-brought-to-you-by-vultr/">switched hosting providers</a>. In the process, I decided to switch to running all my services inside of containers.</p>
+
+<h1 id="why">Why?</h1>
+
+<p>Let&rsquo;s take a look at my previous server environment: I had</p>
+
+<ul>
+<li><em>Some</em> version of nginx serving static files and acting as a reverse proxy for <a href="https://gogs.io/">gogs</a> and <a href="https://ghost.org/">ghost</a></li>
+<li><a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> client running periodically and copying certificates for nginx
+
+<ul>
+<li>Init or cron would run this, <em>maybe both?</em></li>
+</ul></li>
+<li><em>Some</em> version of Ghost running under some version of node.js</li>
+<li><em>Some</em> version of gogs running</li>
+<li><em>Some</em> copy-pasted/handrolled init scripts to manage everything</li>
+<li><em>Probably</em> out-of-date system software</li>
+<li><em>Probably</em> other forgotten pieces of software installed</li>
+<li>Data stored in various, <em>unknown</em> locations on disk</li>
+</ul>
+
+<p>There are a lot of unknowns here. Because of this, it&rsquo;s easy to accidentally break things and difficult to reproduce a setup that has worked. Containers can help with this. They allow us to use immutable (unchanging), versioned images in a sandboxed environment to make sure that we run the <em>exact same code in the exact same environment.</em> This is huge. Everything in the container is always the same. Just pass the same command line flags every time, and everything should be identical. To modify some local state, just mount a local directory into the container.</p>
+
+<p>To push things as far into the immutable, self-managing relm as possible, I decided on the following setup:
+1. I used <a href="https://coreos.com"><del>CoreOS</del> Container Linux</a> as my host system. In Container Linux, all software is in <code>/usr</code> which is read-only. The OS itself is auto-updating, so even if you forget to update your containers, the host OS should have all the latest security patches which should hopefully prevent vulnerabilities in one container from affecting another.
+2. Everything would be run inside containers. I already dicussed the benefits of immutable software above. However, instead of running containers with <a href="https://www.docker.com/">docker</a>, I used <a href="https://coreos.com/rkt/">rkt</a>.
+3. All config files (including start-up scripts/systemd unit files) would be checked into a git repository.</p>
+
+<p>This allows me to reproduce any previous setup exactly by backing up any directories that are referenced in my systemd unit files, copying them to a new host, and running my unit files there. No apt-get required.</p>
+
+<h2 id="rkt-vs-docker">Rkt vs Docker</h2>
+
+<p><a href="https://www.docker.com/">Docker</a>/<a href="https://mobyproject.org/">Moby</a> is the poster child and de facto runtime for containers in the open source world. I have a great deal of appreciation for docker for popularizing and making containers easy to use. However, docker&rsquo;s container runtime reimplements a lot of functionality that other Linux tools (e.g. systemd) already provide. In contrast, rkt uses existing facilities when possible. When the docker daemon crashes, so does your app. rkt doesn&rsquo;t have a daemon, it lets systemd own your app. Because I wanted to start my containers and trust that they&rsquo;ll keep running without issue, I went with rkt.</p>
+
+<h1 id="experience">Experience</h1>
+
+<p>Using a container-based setup has been quite nice. For the most part, things are easy to figure out, dead easy to reproduce, and do what you want. I will talk about two things specifically though: finding docker images and configuration.</p>
+
+<h2 id="container-images">Container Images</h2>
+
+<p>Because rkt has no trouble launching docker images and because it&rsquo;s so much easier to find docker images than <a href="https://coreos.com/rkt/docs/latest/app-container.html">ACI</a> (rkt-native) images, I didn&rsquo;t even bother to look for ACI images. I needed images for 3 pieces of software: an http server &amp; reverse-proxy, <a href="https://ghost.org">ghost</a>, and a git server. Because containers are so new, sometimes I would run into issues. I had a difficult time figuring out how to make <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> work with nginx inside dockers, so I gave up and decided to use <a href="https://caddyserver.com/">Caddy</a> instead. Besides that, setting things up wasn&rsquo;t any more difficult than with a non-container based installation.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>I decided to create systemd unit files to launch and manage all of my services. Had I needed multiple machines, I probably would have used <a href="https://kubernetes.io">kubernetes</a>, but that would have been overkill for a single server. Once you learn the basic syntax, creating systemd unit files is really simple. Here&rsquo;s an example one I used to launch ghost:</p>
+
+<pre><code>[Unit]
+Description=Ghost
+Requires=network-online.target
+
+[Service]
+ExecStart=/usr/bin/rkt run \
+	--volume data,kind=host,source=/home/ghost/data,readOnly=false \
+	--mount volume=data,target=/var/lib/ghost/content \
+	--set-env=url=https://uluyol.xyz/blog \
+	--net=host \
+	--insecure-options=image \
+	docker://ghost:1.5-alpine
+ExecStopPost=/usr/bin/rkt gc --mark-only
+KillMode=mixed
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>ExecStart is the command used to launch ghost. You can see that I start rkt, and tell it to mount <code>/home/ghost/data</code> read-write to <code>/var/lib/ghost/content</code> in the container. I also have it run on the host machine&rsquo;s network (as opposed to a local NAT), and tell it not to check the signature of the ghost image (unsupported by docker images). If this crashed, systemd will restart it. When the container is stopped, any dead containers will be garbage collected by rkt.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>On the whole, switching to container-based hosting has been a big win. I don&rsquo;t need to worry about updating Container Linux, and reproducing old setups is trivial. I know how my services are configured (systemd unit files checked into a git repository), and I know exactly what files are important to me. For anyone looking to simplify their deployment setups, I highly recommend starting with containers.</p>
+
+		</div>
+	</div>
+</body>
+</html>

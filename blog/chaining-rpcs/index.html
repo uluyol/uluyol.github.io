@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /><title>Chaining RPCs - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/blog/">Blog</a>
+	
+	<a href="/blog/index.xml">Feed</a>
+</div>
+
+
+		<div class="title-text">
+			<h1>Chaining RPCs</h1>
+			<time class="post-date" datetime="2018-28-07">Jul 28, 2018</time>
+		</div>
+
+		<div class="content">
+			
+
+<p>Remote Procedure Calls (RPCs) are a widely used primitive for communication in distributed applications. In short, they allow a client the ability to invoke a function on a remote server. <a href="https://grpc.io/">gRPC</a>, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>, <a href="https://thrift.apache.org/">Apache Thrift</a>, and <a href="https://capnproto.org/">Cap&rsquo;n Proto</a> are just some of the ways that RPCs are used today. However, RPCs only allow for client-server communication patterns. <a href="https://www.usenix.org/legacy/event/nsdi09/tech/full_papers/song/song.pdf">RPC Chains</a> from Microsoft Research are meant to address that.</p>
+
+<div style="max-width: 550px; margin: 0 auto; text-align: center">
+<img alt="chain-vs-rpc" src="/blog-static/chaining-rpcs/introfig.jpg">
+<br>
+Execution Flow of regular RPCs (left) vs RPC Chains (right)
+</div>
+
+<p>Rather than issue all requests from the client, along with every request, the client attaches some <em>chaining logic</em> that runs after the RPC is executed. This chaining logic decides where the request should go to next and what RPC should be executed. By building these chains, unnecessary network hops can be avoided, and it can be possible to save on both latency <em>and</em> bandwidth. In a wide-area setting, the latency benefits can be especially nice when a request from one data center needs to execute some logic in a few services in a second, flow to a third, and come back to the client.</p>
+
+<h1 id="chaining-mechanism">Chaining Mechanism</h1>
+
+<p>Some interesting questions come up when building RPC chains:</p>
+
+<ol>
+<li>How is chaining logic transmitted and execute?</li>
+<li>How do we let a server issue an RPC chain to service another RPC chain?</li>
+</ol>
+
+<h2 id="executing-chaining-logic">Executing Chaining Logic</h2>
+
+<p>The paper addresses this problem by pushing all chaining logic to a repository, and having servers download and compile the code on-demand. Since the logic is written in C#, it&rsquo;s possible to JIT compile the code and cache it dynamically. However, the actual developer experience is still an important question here. Do we need language support to make writing chainging functions seamless? How does the code get to the repository in the first place? All of these problems are solvable, but it raises the question of how much effort should be placed into solving these problems at other layers.</p>
+
+<p>These days we might use Javascript or WebAssembly for chaining logic, but the mechanics of the system would really be identical to the paper.</p>
+
+<h2 id="sub-rpc-chains">Sub-RPC Chains</h2>
+
+<p>To allow the implementation of an RPC chain utilize another RPC chain, the authors take inspiration from how function calls work. Just like a call stack is used to store state when nesting calls, the RPC Chain implementation maintains a chain stack to maintain per-chain context.</p>
+
+<h1 id="performance-benefits">Performance Benefits</h1>
+
+<p>As expected, the authors report impressive performance improvements for wide-area communication and copy-type RPCs within a data center. Since Copy operations executed as a chain can avoid shipping data to the client, RPC Chains can reduce overhead and improve overall throughput. In the wide-area experiments, simply avoiding unnecessary data center hops provides some very obvious improvements.</p>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>There are three problems that I think this paper left for future work: (1) how should we deal with failures? (2) What server or data center do we use to handle a particular RPC in a chain?</p>
+
+<p>The approach taken in the paper to address (1) is to use timeouts. With RPCs, you can tell whether the server is alive by looking at the status of your connection with that server. With chains, you don&rsquo;t have that luxury. As a result, I&rsquo;m concerned about the latency impact when failures occur. Maybe RPC chains are only suitable for wide-area requests, whether the destination of each RPC is a data center not a machine, and so the request can be redirected locally when a failure occurs.</p>
+
+<p>The paper pushes responsibility for (2) to the applicaiton. In fact, I suspect that the paper assumes only one data center can be used to handle a particular request, which could be why they assume it is just not a problem. If we know the structure of the chain ahead of time, routing a request is simply an issue of finding the shortest path in a directed graph. However, if we don&rsquo;t know the structure of the chain (perhaps it varies based off of the results at different stages), then the problem isn&rsquo;t so straightforward.</p>
+
+<p>Additionally, if we want to determine where to run services or host data to improve wide-area placement, then our problem becomes exponentially large. This is where things get really interesting: scheduling work and migrating data across data centers to minimize latency or bandwidth for distributed applications.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I really liked this paper. It presents a simple, yet significant improvement on the design of remote procedure calls. While the idea or request chains isn&rsquo;t new, the paper presents a general mechanism for doing this which should be widely applicable, especially for geo-distributed applications.</p>
+
+		</div>
+	</div>
+</body>
+</html>
