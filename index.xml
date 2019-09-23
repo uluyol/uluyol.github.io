@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>Wedding Photos (Men)</title>
+      <link>http://example.org/photos/wedding-men/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/photos/wedding-men/</guid>
+      <description>Here they are. Ctrl-click for high-res version.</description>
+    </item>
+    
+    <item>
       <title>Hashicorp on &#34;Why Multi-Cloud?&#34;</title>
       <link>http://example.org/blog/hashicorp-on-why-multi-cloud/</link>
       <pubDate>Sun, 04 Nov 2018 00:00:00 +0000</pubDate>

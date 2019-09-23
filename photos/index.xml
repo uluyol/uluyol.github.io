@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photos on Muhammed Uluyol</title>
+    <link>http://example.org/photos/</link>
+    <description>Recent content in Photos on Muhammed Uluyol</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/photos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wedding Photos (Men)</title>
+      <link>http://example.org/photos/wedding-men/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/photos/wedding-men/</guid>
+      <description>Here they are. Ctrl-click for high-res version.</description>
+    </item>
+    
+  </channel>
+</rss>
