@@ -3,126 +3,126 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/notes/cxx-tricks/</loc>
+    <loc>https://uluyol.xyz/notes/cxx-tricks/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
-    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/notes/collection/</loc>
-    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/notes/</loc>
+    <loc>https://uluyol.xyz/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/photos/</loc>
+    <loc>https://uluyol.xyz/notes/collection/</loc>
+    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uluyol.xyz/notes/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/photos/wedding-men/</loc>
+    <loc>https://uluyol.xyz/photos/</loc>
+    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://uluyol.xyz/photos/wedding-men/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/</loc>
+    <loc>https://uluyol.xyz/blog/</loc>
     <lastmod>2018-11-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/blog/hashicorp-on-why-multi-cloud/</loc>
+    <loc>https://uluyol.xyz/blog/hashicorp-on-why-multi-cloud/</loc>
     <lastmod>2018-11-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/notes/information-about-industry/</loc>
+    <loc>https://uluyol.xyz/notes/information-about-industry/</loc>
     <lastmod>2018-10-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/thoughts-on-reddit-arch-evolution/</loc>
+    <loc>https://uluyol.xyz/blog/thoughts-on-reddit-arch-evolution/</loc>
     <lastmod>2018-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/raymond-chens-powerpc/</loc>
+    <loc>https://uluyol.xyz/blog/raymond-chens-powerpc/</loc>
     <lastmod>2018-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/chaining-rpcs/</loc>
+    <loc>https://uluyol.xyz/blog/chaining-rpcs/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/raymond-chens-mips-r4000/</loc>
+    <loc>https://uluyol.xyz/blog/raymond-chens-mips-r4000/</loc>
     <lastmod>2018-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/notes/tricks-for-mixed-integer-programming/</loc>
+    <loc>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</loc>
     <lastmod>2018-03-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/fast-data-migration/</loc>
+    <loc>https://uluyol.xyz/blog/fast-data-migration/</loc>
     <lastmod>2017-11-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/verifying-little-bits-of-data/</loc>
+    <loc>https://uluyol.xyz/blog/verifying-little-bits-of-data/</loc>
     <lastmod>2017-11-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/container-based-hosting/</loc>
+    <loc>https://uluyol.xyz/blog/container-based-hosting/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/raymond-chens-alpha-axp-series/</loc>
+    <loc>https://uluyol.xyz/blog/raymond-chens-alpha-axp-series/</loc>
     <lastmod>2017-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/this-blog-brought-to-you-by-vultr/</loc>
+    <loc>https://uluyol.xyz/blog/this-blog-brought-to-you-by-vultr/</loc>
     <lastmod>2017-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/notes/device-meta-output/</loc>
+    <loc>https://uluyol.xyz/notes/device-meta-output/</loc>
     <lastmod>2016-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/go-dependency-management/</loc>
+    <loc>https://uluyol.xyz/blog/go-dependency-management/</loc>
     <lastmod>2016-04-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/raymond-chen-itanium/</loc>
+    <loc>https://uluyol.xyz/blog/raymond-chen-itanium/</loc>
     <lastmod>2015-12-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://uluyol.xyz/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://uluyol.xyz/tags/</loc>
     <priority>0</priority>
   </url>
   

@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Muhammed Uluyol</title>
-    <link>http://example.org/</link>
+    <link>https://uluyol.xyz/</link>
     <description>Recent content on Muhammed Uluyol</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://uluyol.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C&#43;&#43; Tricks</title>
-      <link>http://example.org/notes/cxx-tricks/</link>
+      <link>https://uluyol.xyz/notes/cxx-tricks/</link>
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/notes/cxx-tricks/</guid>
+      <guid>https://uluyol.xyz/notes/cxx-tricks/</guid>
       <description>C++ is one hell of a programming language (for better or worse). This is a collection of C++ programming tricks that are useful, interesting, or just plain crazy:
  Detecting in C++ whether a type is defined (Raymond Chen)  Part 1: The initial plunge Part 2: Giving it a special name Part 3: SFINAE and incomplete types Part 4: Predeclaring things you want to probe Part 5: Augmenting the basic pattern   </description>
     </item>
     
     <item>
       <title>Note Collection</title>
-      <link>http://example.org/notes/collection/</link>
+      <link>https://uluyol.xyz/notes/collection/</link>
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/notes/collection/</guid>
+      <guid>https://uluyol.xyz/notes/collection/</guid>
       <description>Of Active Interest  Collection of articles from industry about things Tricks for mixed integer programming  The Rest Links to Some of my Projects  xkcd feed with captions  Compilers and Runtime Environments  WebAssembly for Edge Computing: @Cloudflare, @Fastly Mini-series on JVM internals, 2018 User-Level Thread Scheduling on Linux, 2013 Statically Recompiling NES Games into Native Executables with LLVM and Go, 2013 Fast Enough VMs in Fast Enough Time, 2012.</description>
     </item>
     
     <item>
       <title>Wedding Photos (Men)</title>
-      <link>http://example.org/photos/wedding-men/</link>
+      <link>https://uluyol.xyz/photos/wedding-men/</link>
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/photos/wedding-men/</guid>
+      <guid>https://uluyol.xyz/photos/wedding-men/</guid>
       <description>Here they are. Ctrl-click for high-res version.</description>
     </item>
     
     <item>
       <title>Hashicorp on &#34;Why Multi-Cloud?&#34;</title>
-      <link>http://example.org/blog/hashicorp-on-why-multi-cloud/</link>
+      <link>https://uluyol.xyz/blog/hashicorp-on-why-multi-cloud/</link>
       <pubDate>Sun, 04 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/hashicorp-on-why-multi-cloud/</guid>
+      <guid>https://uluyol.xyz/blog/hashicorp-on-why-multi-cloud/</guid>
       <description>Mitchell Hashimoto (Hashicorp Founder and CTO) commented on Reddit on why certain corporations care about Multi-Cloud deployments. I have copied the original post below:
  This is something I can provide very broad real world insight into. I routinely talk with dozens of users and paying customers that are multi-cloud (biased towards the Global 2000 size) and can share the real reasons why folks are doing this.
 First, if you&amp;rsquo;re a small company, you probably don&amp;rsquo;t want to think about multi-cloud.</description>
@@ -52,89 +52,89 @@ First, if you&amp;rsquo;re a small company, you probably don&amp;rsquo;t want to
     
     <item>
       <title>Articles about Industry Experience</title>
-      <link>http://example.org/notes/information-about-industry/</link>
+      <link>https://uluyol.xyz/notes/information-about-industry/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/notes/information-about-industry/</guid>
+      <guid>https://uluyol.xyz/notes/information-about-industry/</guid>
       <description>This page contains various articles about industry that could be useful from a research standpoint. I am collecting articles about things like hardware specs, application architectures, and failures that caused service downtime.
 Hardware Specs  Cloudflare  2013 2018  Stack Exchange  2016   Application Design  Internet Native Applications - Cloudflare Dropbox erasure coding data acros data centers Hashicorp on why people want multi-cloud deployments Reddit.com architecture and my thoughts  Incident Reports  Oct 2018 Github incident involving automatic primary election and async replication  Internet Statistics  Cloudflare has some numbers on Black Friday traffic Unstructured list of links I ran into about various WAN-related statistics.</description>
     </item>
     
     <item>
       <title>Thoughts on &#34;The Evolution of Reddit.com&#39;s Architecture&#34;</title>
-      <link>http://example.org/blog/thoughts-on-reddit-arch-evolution/</link>
+      <link>https://uluyol.xyz/blog/thoughts-on-reddit-arch-evolution/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/thoughts-on-reddit-arch-evolution/</guid>
+      <guid>https://uluyol.xyz/blog/thoughts-on-reddit-arch-evolution/</guid>
       <description>As someone who claims to try and design systems for others to run their applications on, I try to learn about how systems are used in practice. I recently found this talk on the architecture of reddit.com and summarized some of my thoughts on it below.
 As the fifth most popular website in the US, reddit faces a few scaling challenges. First, the website receives a high volume of traffic which makes avoiding slow resources (e.</description>
     </item>
     
     <item>
       <title>Raymond Chen&#39;s PowerPC 600 Series</title>
-      <link>http://example.org/blog/raymond-chens-powerpc/</link>
+      <link>https://uluyol.xyz/blog/raymond-chens-powerpc/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/raymond-chens-powerpc/</guid>
+      <guid>https://uluyol.xyz/blog/raymond-chens-powerpc/</guid>
       <description>Following his other architecture series, here is an architecture series on the PowerPC 600 by Raymond Chen:
  Part 1: Introduction Part 2: Condition registers and the integer exception register Part 3: Arithmetic Part 4: Bitwise operations and constants Part 5: Rotates and shifts Part 6: Memory access Part 7: Atomic memory access and cache coherency Part 8: Control transfer Part 9: The table of contents Part 10: Passing parameters, function prologues and epilogues Part 11: Glue routines Part 12: leaf functions Part 13: Common patterns Part 14: Code walkthrough  </description>
     </item>
     
     <item>
       <title>Chaining RPCs</title>
-      <link>http://example.org/blog/chaining-rpcs/</link>
+      <link>https://uluyol.xyz/blog/chaining-rpcs/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/chaining-rpcs/</guid>
+      <guid>https://uluyol.xyz/blog/chaining-rpcs/</guid>
       <description>Remote Procedure Calls (RPCs) are a widely used primitive for communication in distributed applications. In short, they allow a client the ability to invoke a function on a remote server. gRPC, REST, Apache Thrift, and Cap&amp;rsquo;n Proto are just some of the ways that RPCs are used today. However, RPCs only allow for client-server communication patterns. RPC Chains from Microsoft Research are meant to address that.
 Execution Flow of regular RPCs (left) vs RPC Chains (right)  Rather than issue all requests from the client, along with every request, the client attaches some chaining logic that runs after the RPC is executed.</description>
     </item>
     
     <item>
       <title>Raymond Chen&#39;s MIPS R4000 Series</title>
-      <link>http://example.org/blog/raymond-chens-mips-r4000/</link>
+      <link>https://uluyol.xyz/blog/raymond-chens-mips-r4000/</link>
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/raymond-chens-mips-r4000/</guid>
+      <guid>https://uluyol.xyz/blog/raymond-chens-mips-r4000/</guid>
       <description>Following his series on the Itanium architecture and Alpha AXP, here is yet another architecture series by Raymond Chen:
  Part 1: Introduction Part 2: 32-bit Integer Calculations Part 3: Multiplication, Division, and the Temperamental HI and LO Registers Part 4: Constants Part 5: Memory Access (Aligned) Part 6: Memory Access (Unaligned) Part 7: Memory Access (Atomic) Part 8: Control Transfer Part 9: Stupid Branch Delay Slot Tricks Part 10: Trampolines and Stubs Part 11: More on Branch Delay Slots Part 12: Calling Convention Part 13: Function Prologues and Epilogues Part 14: Common patterns Part 15: Code Walkthrough  </description>
     </item>
     
     <item>
       <title>Tricks for Mixed Integer Programming</title>
-      <link>http://example.org/notes/tricks-for-mixed-integer-programming/</link>
+      <link>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</link>
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/notes/tricks-for-mixed-integer-programming/</guid>
+      <guid>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</guid>
       <description>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: a, b, c, &amp;hellip; will to refer to binary variables while x, y, z, &amp;hellip; will refer to integer variables unless otherwise specified. Syntax follows the CPLEX LP file format.
 Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations</description>
     </item>
     
     <item>
       <title>Fast Data Migration</title>
-      <link>http://example.org/blog/fast-data-migration/</link>
+      <link>https://uluyol.xyz/blog/fast-data-migration/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/fast-data-migration/</guid>
+      <guid>https://uluyol.xyz/blog/fast-data-migration/</guid>
       <description>An SOSP&amp;rsquo;17 paper from the University of Utah used an interesting approach to speed up data migration. As usual, none of the techniques themselves are new, but the way they are applied is. This paper aims to improve the performance of data migration in an in-memory key-value store. The main goals are to migrate data without any loss in availability, minimal disruption to latency, and to complete the migration as quickly as possible.</description>
     </item>
     
     <item>
       <title>Verifying Little Bits of Big Data</title>
-      <link>http://example.org/blog/verifying-little-bits-of-data/</link>
+      <link>https://uluyol.xyz/blog/verifying-little-bits-of-data/</link>
       <pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/verifying-little-bits-of-data/</guid>
+      <guid>https://uluyol.xyz/blog/verifying-little-bits-of-data/</guid>
       <description>Most data is small. Filesystems store executables, text files, configuration files, and a few large files. Databases are enormous tables of small rows. Version control systems are chains of directory trees made up of small bits of code. Because of the volume of data, efficiently managing this becomes difficult. In this post, we&amp;rsquo;re going to look at how to verify that data hasn&amp;rsquo;t been corrupted or tampered with.
 To start, we will assume that most data has not been corrupted.</description>
     </item>
     
     <item>
       <title>Container-Based Hosting</title>
-      <link>http://example.org/blog/container-based-hosting/</link>
+      <link>https://uluyol.xyz/blog/container-based-hosting/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/container-based-hosting/</guid>
+      <guid>https://uluyol.xyz/blog/container-based-hosting/</guid>
       <description>I recently switched hosting providers. In the process, I decided to switch to running all my services inside of containers.
 Why? Let&amp;rsquo;s take a look at my previous server environment: I had
  Some version of nginx serving static files and acting as a reverse proxy for gogs and ghost Let&amp;rsquo;s Encrypt client running periodically and copying certificates for nginx  Init or cron would run this, maybe both?  Some version of Ghost running under some version of node.</description>
@@ -142,20 +142,20 @@ Why? Let&amp;rsquo;s take a look at my previous server environment: I had
     
     <item>
       <title>Raymond Chen&#39;s Alpha AXP Series</title>
-      <link>http://example.org/blog/raymond-chens-alpha-axp-series/</link>
+      <link>https://uluyol.xyz/blog/raymond-chens-alpha-axp-series/</link>
       <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/raymond-chens-alpha-axp-series/</guid>
+      <guid>https://uluyol.xyz/blog/raymond-chens-alpha-axp-series/</guid>
       <description>Raymond Chen previously wrote an excellent series of posts on the Itanium archicture, and now he&amp;rsquo;s followed that up with a series on the Alpha AXP. Below are links to the whole series:
  Part 1: Initial plunge Part 2: Integer calculations Part 3: Integer constants Part 4: Bit 15. Ugh. Bit 15. Part 5: Conditional operations and control flow Part 6: Memory access, basics Part 7: Memory access, loading unaligned data Part 8: Memory access, storing bytes and words and unaligned data Part 9: The memory model and atomic memory operations Part 10: Atomic updates to byte and word memory units Part 11: Processor faults Part 12: How you detect carry on a processor with no carry?</description>
     </item>
     
     <item>
       <title>This Blog – Brought to You by Vultr</title>
-      <link>http://example.org/blog/this-blog-brought-to-you-by-vultr/</link>
+      <link>https://uluyol.xyz/blog/this-blog-brought-to-you-by-vultr/</link>
       <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/this-blog-brought-to-you-by-vultr/</guid>
+      <guid>https://uluyol.xyz/blog/this-blog-brought-to-you-by-vultr/</guid>
       <description>As I recently switched hosting providers, I thought I&amp;rsquo;d offer a quick comparison between them. I am not receiving any commission for this post.
 This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someone who lives in the US, Europe-based hosting has annoyingly high latency. I recently found out about Vultr and am now using their smallest offering. Below is a quick spec comparison:
  Scaleway C1Vultr   CPU4-Core ARMv7Single-Core 2.</description>
@@ -163,29 +163,29 @@ This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someo
     
     <item>
       <title>Device Meta Output</title>
-      <link>http://example.org/notes/device-meta-output/</link>
+      <link>https://uluyol.xyz/notes/device-meta-output/</link>
       <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/notes/device-meta-output/</guid>
+      <guid>https://uluyol.xyz/notes/device-meta-output/</guid>
       <description>Width Height Device-Pixel-Ratio User-Agent   document.getElementById(&#34;meta-devwidth&#34;).innerHTML = window.screen.width; document.getElementById(&#34;meta-devheight&#34;).innerHTML = window.screen.height; document.getElementById(&#34;meta-devpixelratio&#34;).innerHTML = window.devicePixelRatio; document.getElementById(&#34;meta-useragent&#34;).innerHTML = navigator.userAgent;  </description>
     </item>
     
     <item>
       <title>Go Dependency Management</title>
-      <link>http://example.org/blog/go-dependency-management/</link>
+      <link>https://uluyol.xyz/blog/go-dependency-management/</link>
       <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/go-dependency-management/</guid>
+      <guid>https://uluyol.xyz/blog/go-dependency-management/</guid>
       <description>Different languages have different ways of managing dependencies. C/C++ don&amp;rsquo;t do any of this for you. Newer languages have tools like pip, npm, maven, etc. to handle dependencies.
 Go packages are typically referred to through URLs (e.g. github.com/coreos/etcd/clientv3). This is nice because it&amp;rsquo;s completely decentralized. However, Go doesn&amp;rsquo;t have any notion of package versions. This means that the go tool will always fetch the git HEAD of the repository. The recommendation from the Go team to solve this has been to vendor dependencies (i.</description>
     </item>
     
     <item>
       <title>Raymond Chen&#39;s Itanium Series</title>
-      <link>http://example.org/blog/raymond-chen-itanium/</link>
+      <link>https://uluyol.xyz/blog/raymond-chen-itanium/</link>
       <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/blog/raymond-chen-itanium/</guid>
+      <guid>https://uluyol.xyz/blog/raymond-chen-itanium/</guid>
       <description>Raymond Chen wrote a very interesting introduction to the Itanium architecture and how it is used in Windows. I have collected links for the series of posts below:
  Part 1: Warming up Part 2: Instruction encoding, templates, and stops Part 3: The Windows calling convention, how parameters are passed Part 3b: How does spilling actually work? Part 4: The Windows calling convention, leaf functions Part 5: The GP register, calling functions, and function pointers Part 6: Calculating conditionals Part 7: Speculative loads Part 8: Advanced loads Part 9: Counted loops and loop pipelining Part 10: Register rotation  </description>
     </item>
