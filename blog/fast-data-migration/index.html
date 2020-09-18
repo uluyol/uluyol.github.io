@@ -29,16 +29,14 @@
 		</div>
 
 		<div class="content">
-			<p>An <a href="https://www.flux.utah.edu/paper/kulkarni-sosp17">SOSP&rsquo;17 paper</a> from the University of Utah used an interesting approach to speed up data migration. As usual, none of the techniques themselves are new, but the way they are applied is. This paper aims to improve the performance of data migration in an in-memory key-value store. The main goals are to migrate data without any loss in availability, minimal disruption to latency, and to complete the migration as quickly as possible.</p>
-
-<p>There are two insights in this paper that I want to highlight:
-1. The source node is likely a performance bottleneck. Otherwise there would be no point of migration.
-2. The source node (and its replicas) contain a log that can be used to reconstruct the local data.</p>
-
+			<p>An <a href="https://www.flux.utah.edu/paper/kulkarni-sosp17">SOSP'17 paper</a> from the University of Utah used an interesting approach to speed up data migration. As usual, none of the techniques themselves are new, but the way they are applied is. This paper aims to improve the performance of data migration in an in-memory key-value store. The main goals are to migrate data without any loss in availability, minimal disruption to latency, and to complete the migration as quickly as possible.</p>
+<p>There are two insights in this paper that I want to highlight:</p>
+<ol>
+<li>The source node is likely a performance bottleneck. Otherwise there would be no point of migration.</li>
+<li>The source node (and its replicas) contain a log that can be used to reconstruct the local data.</li>
+</ol>
 <p>To minimize load on the source node, the target node is made responsible for coordinating the migration. This way, the target node can pull more data whenever it is done processing the data it has received so far, and the source node is node doing any work that isn&rsquo;t immediately usable by the target node. Additionally, ownership of the new partition is transferred over to the target immediately, and to prevent priority inversion (since processing migration is considered low-priority), the RPCs to pull data needed for client RPCs are marked as priority requests. This allows the target to quickly pull data for hot portions of the keyspace, quickly moving load away from the source which should speed up the migration as well. Of course, this optimization only helps for skewed workloads.</p>
-
 <p>Point (2) is used to outright eliminate work. Taking inspiration from <a href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf">RDDs</a> (i.e. Spark), the target node simply notes that the migrated portion of the keyspace originated from the source node. If the data ever needs to be reconstructed, it can be remotely fetched.</p>
-
 <p>The rest of the paper contains many details and smaller optimizations including prioritizing client requests, kernel bypass, direct DMA transfers, etc. However, the use of pull-based migration and lineage seemed to be the main contributions.</p>
 
 		</div>

@@ -29,12 +29,8 @@
 		</div>
 
 		<div class="content">
-			
-
-<p>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: <code>a</code>, <code>b</code>, <code>c</code>, &hellip; will to refer to binary variables while <code>x</code>, <code>y</code>, <code>z</code>, &hellip; will refer to integer variables unless otherwise specified. Syntax follows the <a href="https://www.ibm.com/support/knowledgecenter/en/SSSA5P_12.6.1/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/usingLPformat.html">CPLEX LP</a> <a href="http://lpsolve.sourceforge.net/5.1/CPLEX-format.htm">file format</a>.</p>
-
+			<p>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: <code>a</code>, <code>b</code>, <code>c</code>, &hellip; will to refer to binary variables while <code>x</code>, <code>y</code>, <code>z</code>, &hellip; will refer to integer variables unless otherwise specified. Syntax follows the <a href="https://www.ibm.com/support/knowledgecenter/en/SSSA5P_12.6.1/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/tutorials/InteractiveOptimizer/usingLPformat.html">CPLEX LP</a> <a href="http://lpsolve.sourceforge.net/5.1/CPLEX-format.htm">file format</a>.</p>
 <h1 id="contents">Contents</h1>
-
 <ol>
 <li><a href="#boolean-ops">Boolean Operations</a></li>
 <li><a href="#max-one-true">At Most One is True</a></li>
@@ -44,261 +40,161 @@
 <li><a href="#ceil-div-constant">Rounded Up Division by Constant</a></li>
 <li><a href="#floor-div-constant">Rounded Down Division by Constant</a></li>
 </ol>
-
 <h1 id="transformations">Transformations</h1>
-
-<p><a name="boolean-ops" class="anchor"></p>
-
+<!-- raw HTML omitted -->
 <h2 id="boolean-operations">Boolean Operations</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>To make <code>c = a AND b</code></p>
-
 <pre><code>a + b - 2c &lt;= 1
 a + b - 2c &gt;= 0
-</code></pre>
-
-<p><strong>Proof:</strong>
-<table>
-<tr>
-    <th>a</th>
-    <th>b</th>
-    <th>c</th>
-    <th>Reason</th>
-</tr>
-<tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td><td>(1 would violate second constraint)</td>
-</tr>
-<tr>
-    <td>0</td>
-    <td>1</td>
-    <td>0</td><td>(1 would violate second constraint)</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>0</td>
-    <td>0</td><td>(1 would violate second constraint)</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td><td>(0 would violate first constraint)</td>
-</tr>
-</table></p>
-
+</code></pre><p><strong>Proof:</strong></p>
+<!-- raw HTML omitted -->
 <p>To make <code>c = a OR b</code></p>
-
 <pre><code>2c - a - b &lt;= 1
 2c - a - b &gt;= 0
-</code></pre>
-
-<p><strong>Proof:</strong>
-<table>
-<tr>
-    <th>a</th>
-    <th>b</th>
-    <th>c</th>
-    <th>Reason</th>
-</tr>
-<tr>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td><td>(1 would violate first constraint)</td>
-</tr>
-<tr>
-    <td>0</td>
-    <td>1</td>
-    <td>1</td><td>(0 would violate second constraint)</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>0</td>
-    <td>1</td><td>(0 would violate second constraint)</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td><td>(0 would violate second constraint)</td>
-</tr>
-</table></p>
-
+</code></pre><p><strong>Proof:</strong></p>
+<!-- raw HTML omitted -->
 <p>Source: <a href="https://cs.stackexchange.com/a/43884">https://cs.stackexchange.com/a/43884</a></p>
-
-<p><a name="max-one-true" class="anchor"></p>
-
+<!-- raw HTML omitted -->
 <h2 id="at-most-one-is-true">At Most One is True</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>To make at most one of a1, a2, &hellip;, aN be true:</p>
-
 <pre><code>    a1 + a2 + ... + aN &lt;= 1
-</code></pre>
-
-<p><strong>Proof:</strong>
+</code></pre><p><strong>Proof:</strong>
 Assume any <code>ai</code>, <code>aj</code> true where <code>i != j</code>, then the sum is 2. Hence, at most one can be true. If on the other hand, at most one <code>ai</code> is true, the inequality is also true.</p>
-
-<p><a name="prod-bool-int" class="anchor"></p>
-
+<!-- raw HTML omitted -->
 <h2 id="product-of-binary-and-bounded-integer-variables">Product of Binary and (Bounded) Integer Variables</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> (any upper bound will do). To make <code>y = a * x</code></p>
-
 <pre><code>y - Ka &lt;= 0
 y - x &lt;= 0
 y - x - Ka &gt;= -K
 y &gt;= 0
-</code></pre>
-
-<p>A generalized version that uses a non-zero lower bound can be found at the source.</p>
-
+</code></pre><p>A generalized version that uses a non-zero lower bound can be found at the source.</p>
 <p>Source: <a href="https://www.leandro-coelho.com/linearization-product-variables/">https://www.leandro-coelho.com/linearization-product-variables/</a></p>
-
-<p><a name="int-cmp" class="anchor"></p>
-
+<!-- raw HTML omitted -->
 <h2 id="bounded-integer-comparison-result">(Bounded) Integer Comparison Result</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> and that <code>0 &lt;= y &lt;= K</code> (any upper bound will do). To make <code>a = 1 iff (x &gt;= y)</code></p>
-
 <pre><code>y - x + Ka &lt;= K
 y - x + Ka &gt;= 1
-</code></pre>
-
-<p><strong>Proof:</strong>
-* Case <code>x &gt;= y</code> then <code>y - x &lt;= 0</code>
-  - if <code>a = 0</code> then
-    + <code>y - x &lt;= K</code> (true)
-    + <code>y - x &gt;= 1</code> (false, violation)
-  - if <code>a = 1</code> then
-    + <code>y - x + K &lt;= K</code> (true)
-    + <code>y - x + K &gt;= 1</code> (true since <code>0 &lt;= x,y &lt;= K</code>)
-* Case <code>x &lt; y</code>, then <code>y - x &gt;= 1</code>
-  - if <code>a = 0</code> then
-    + <code>y - x &lt;= K</code> (true since <code>0 &lt;= x,y &lt;= K</code>)
-    + <code>y - x &gt;= 1</code> (true)
-  - if <code>a = 1</code> then
-    + <code>y - x + K &lt;= K</code> (false, violation)
-    + <code>y - x + K &gt;= 1</code> (true)</p>
-
+</code></pre><p><strong>Proof:</strong></p>
+<ul>
+<li>Case <code>x &gt;= y</code> then <code>y - x &lt;= 0</code>
+<ul>
+<li>if <code>a = 0</code> then
+<ul>
+<li><code>y - x &lt;= K</code> (true)</li>
+<li><code>y - x &gt;= 1</code> (false, violation)</li>
+</ul>
+</li>
+<li>if <code>a = 1</code> then
+<ul>
+<li><code>y - x + K &lt;= K</code> (true)</li>
+<li><code>y - x + K &gt;= 1</code> (true since <code>0 &lt;= x,y &lt;= K</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Case <code>x &lt; y</code>, then <code>y - x &gt;= 1</code>
+<ul>
+<li>if <code>a = 0</code> then
+<ul>
+<li><code>y - x &lt;= K</code> (true since <code>0 &lt;= x,y &lt;= K</code>)</li>
+<li><code>y - x &gt;= 1</code> (true)</li>
+</ul>
+</li>
+<li>if <code>a = 1</code> then
+<ul>
+<li><code>y - x + K &lt;= K</code> (false, violation)</li>
+<li><code>y - x + K &gt;= 1</code> (true)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p>Based on <a href="https://blog.adamfurmanek.pl/2015/09/12/ilp-part-4/">https://blog.adamfurmanek.pl/2015/09/12/ilp-part-4/</a></p>
-
-<p><a name="int-cmp-bound" class="anchor"></p>
-
+<!-- raw HTML omitted -->
 <h2 id="bounded-integer-comparison-bound">(Bounded) Integer Comparison Bound</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> and that <code>0 &lt;= y &lt;= K</code> (any upper bound will do). To make <code>a ≤ 1 if (x &gt;= y)</code> and <code>a = 0</code> otherwise</p>
-
 <pre><code>y - x + Ka &lt;= K
-</code></pre>
-
-<p><strong>Proof</strong>:
-* Case <code>x &gt;= y</code> then <code>y - x &lt;= 0</code>
-  - if <code>a = 0</code> then
-    + <code>y - x &lt;= K</code> (true)
-  - if <code>a = 1</code> then
-    + <code>y - x + K &lt;= K</code> (true)
-* Case <code>x &lt; y</code> then <code>y - x &gt;= 1</code>
-  - if <code>a = 0</code> then
-    + <code>y - x &lt;= K</code> (true)
-  - if <code>a = 1</code> then
-    + <code>y - x + K &lt;= K</code> (false, violation)</p>
-
-<p><a name="ceil-div-constant" class="anchor"></p>
-
+</code></pre><p><strong>Proof</strong>:</p>
+<ul>
+<li>Case <code>x &gt;= y</code> then <code>y - x &lt;= 0</code>
+<ul>
+<li>if <code>a = 0</code> then
+<ul>
+<li><code>y - x &lt;= K</code> (true)</li>
+</ul>
+</li>
+<li>if <code>a = 1</code> then
+<ul>
+<li><code>y - x + K &lt;= K</code> (true)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Case <code>x &lt; y</code> then <code>y - x &gt;= 1</code>
+<ul>
+<li>if <code>a = 0</code> then
+<ul>
+<li><code>y - x &lt;= K</code> (true)</li>
+</ul>
+</li>
+<li>if <code>a = 1</code> then
+<ul>
+<li><code>y - x + K &lt;= K</code> (false, violation)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
 <h2 id="rounded-up-division-by-constant">Rounded Up Division by Constant</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>We will assume that <code>x</code> and <code>z</code> are integers and that <code>K &gt;= 2</code>. To make <code>z = ceil(x/K)</code></p>
-
 <pre><code>x - Kz &lt;= 0
 Kz - x &lt;= K - 1/K
-</code></pre>
-
-<p><strong>Proof</strong>:</p>
-
+</code></pre><p><strong>Proof</strong>:</p>
 <p>Combining the two constraints yields</p>
-
 <pre><code>  x &lt;= Kz &lt;= x + (K - 1/K)
 x/K &lt;=  z &lt;= x/K + (1 - 1/K^2)
-</code></pre>
-
-<p>The lower bound is obviously correct since <code>z &gt;= ceil(x/K)</code> by definition requires that <code>z &gt;= x/K</code>.</p>
-
+</code></pre><p>The lower bound is obviously correct since <code>z &gt;= ceil(x/K)</code> by definition requires that <code>z &gt;= x/K</code>.</p>
 <p>The open question is whether the right hand side is correct. For this to work, we need that our upper bound is <code>&gt;= ceil(x/K)</code> and <code>&lt; ceil(x+K) + 1</code> (strict inequality).</p>
-
 <p>For the upper bound of the upper bound, we have that</p>
-
 <pre><code>ceil(x/K) + 1 &gt; ceil(x/K) + (1 - 1/K^2)
               &gt; x/K + (1 - 1/K^2)
-</code></pre>
-
-<p>To compute the lower bound of the upper bound, we first define <code>x = Km + r</code> where <code>0 &lt;= r &lt; K</code>. Then we have</p>
-
+</code></pre><p>To compute the lower bound of the upper bound, we first define <code>x = Km + r</code> where <code>0 &lt;= r &lt; K</code>. Then we have</p>
 <pre><code>x/K + (1 - 1/K^2) = (m + r/K) + (1 - 1/K^2)
                   = (m + 1) + r/K - 1/K^2
-</code></pre>
-
-<p><em>Case 1</em>: <code>r = 0</code></p>
-
+</code></pre><p><em>Case 1</em>: <code>r = 0</code></p>
 <p>Then <code>ceil(x/K) = m</code> and</p>
-
 <pre><code>x/K + (1 - 1/K^2) = m + 1 + 0/K - 1/K^2
                   = ceil(x/K) + 1 - 1/K^2
                   &gt;= ceil(x/K)
-</code></pre>
-
-<p><em>Case 2</em>: <code>r &gt;= 1</code></p>
-
+</code></pre><p><em>Case 2</em>: <code>r &gt;= 1</code></p>
 <p>Then <code>ceil(x/K) = m + 1</code> and</p>
-
 <pre><code>x/K + (1 - 1/K^2) = (m + 1) + r/K - 1/K^2
                   = ceil(x/K) + r/K - 1/K^2
                   &gt;= ceil(x/K) + 1/K - 1/K^2
                   &gt;= ceil(x/K)
-</code></pre>
-
-<p><a name="floor-div-constant" class="anchor"></p>
-
+</code></pre><!-- raw HTML omitted -->
 <h2 id="rounded-down-division-by-constant">Rounded Down Division by Constant</h2>
-
-<p></a></p>
-
+<!-- raw HTML omitted -->
 <p>We will assume that <code>x</code> and <code>z</code> are integers and that <code>K &gt;= 2</code>. To make <code>z = floor(x/K)</code></p>
-
 <pre><code>Kz - x &lt;= 0
 x - Kz &lt;= K - 1/K
-</code></pre>
-
-<p><strong>Proof</strong>:</p>
-
+</code></pre><p><strong>Proof</strong>:</p>
 <p>Combining the two constraints yields</p>
-
 <pre><code>    x - K + 1/K &lt;= Kz &lt;= x
 x/K - 1 + 1/K^2 &lt;=  z &lt;= x/K
-</code></pre>
-
-<p>The upper bound is obviously correct since <code>z &lt;= floor(x/K)</code> by definition requires that <code>z &lt;= x/K</code>.</p>
-
+</code></pre><p>The upper bound is obviously correct since <code>z &lt;= floor(x/K)</code> by definition requires that <code>z &lt;= x/K</code>.</p>
 <p>The open question is whether the left hand size is correct. For this to work, we need that our lower bound is <code>&lt;= floor(x/K)</code> and <code>&gt; floor(x/K) - 1</code> (strict inequality).</p>
-
 <p>For the lower bound of the lower bound, we have that</p>
-
 <pre><code>floor(x/K) - 1 &lt; floor(x/K) - (1 - 1/K^2)
                &lt; x/K - 1 + 1/K^2
-</code></pre>
-
-<p>To compute the upper bound of the lower bound, we first define <code>x = Km + r</code> where <code>0 &lt;= r &lt; K</code>. Then we have that <code>floor(x/K) = m</code> and</p>
-
+</code></pre><p>To compute the upper bound of the lower bound, we first define <code>x = Km + r</code> where <code>0 &lt;= r &lt; K</code>. Then we have that <code>floor(x/K) = m</code> and</p>
 <pre><code>x/K - 1 + 1/K^2 = (m + r/K) - 1 + 1/K^2
                 = m - 1 + r/K + 1/K^2
                 = floor(x/K) - 1 + r/K + 1/K^2
@@ -307,7 +203,6 @@ x/K - 1 + 1/K^2 &lt;=  z &lt;= x/K
                 &lt;= floor(x/K) - (1/K - 1/K^2)
                 &lt;= floor(x/K)
 </code></pre>
-
 		</div>
 	</div>
 </body>

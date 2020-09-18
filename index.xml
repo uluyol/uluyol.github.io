@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Muhammed Uluyol</title>
@@ -18,7 +18,7 @@
       
       <guid>https://uluyol.xyz/notes/cxx-tricks/</guid>
       <description>C++ is one hell of a programming language (for better or worse). This is a collection of C++ programming tricks that are useful, interesting, or just plain crazy:
- Detecting in C++ whether a type is defined (Raymond Chen)  Part 1: The initial plunge Part 2: Giving it a special name Part 3: SFINAE and incomplete types Part 4: Predeclaring things you want to probe Part 5: Augmenting the basic pattern   </description>
+ Detecting in C++ whether a type is defined (Raymond Chen)  Part 1: The initial plunge Part 2: Giving it a special name Part 3: SFINAE and incomplete types Part 4: Predeclaring things you want to probe Part 5: Augmenting the basic pattern    </description>
     </item>
     
     <item>
@@ -57,17 +57,7 @@ First, if you&amp;rsquo;re a small company, you probably don&amp;rsquo;t want to
       
       <guid>https://uluyol.xyz/notes/information-about-industry/</guid>
       <description>This page contains various articles about industry that could be useful from a research standpoint. I am collecting articles about things like hardware specs, application architectures, and failures that caused service downtime.
-Hardware Specs  Cloudflare  2013 2018  Stack Exchange  2016   Application Design  Internet Native Applications - Cloudflare Dropbox erasure coding data acros data centers Hashicorp on why people want multi-cloud deployments Reddit.com architecture and my thoughts  Incident Reports  Oct 2018 Github incident involving automatic primary election and async replication  Internet Statistics  Cloudflare has some numbers on Black Friday traffic Unstructured list of links I ran into about various WAN-related statistics.</description>
-    </item>
-    
-    <item>
-      <title>Thoughts on &#34;The Evolution of Reddit.com&#39;s Architecture&#34;</title>
-      <link>https://uluyol.xyz/blog/thoughts-on-reddit-arch-evolution/</link>
-      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://uluyol.xyz/blog/thoughts-on-reddit-arch-evolution/</guid>
-      <description>As someone who claims to try and design systems for others to run their applications on, I try to learn about how systems are used in practice. I recently found this talk on the architecture of reddit.com and summarized some of my thoughts on it below.
-As the fifth most popular website in the US, reddit faces a few scaling challenges. First, the website receives a high volume of traffic which makes avoiding slow resources (e.</description>
+Hardware Specs  Cloudflare  2013 2018   Stack Exchange  2016    Application Design  Internet Native Applications - Cloudflare Dropbox erasure coding data acros data centers Hashicorp on why people want multi-cloud deployments Reddit.</description>
     </item>
     
     <item>
@@ -87,7 +77,7 @@ As the fifth most popular website in the US, reddit faces a few scaling challeng
       
       <guid>https://uluyol.xyz/blog/chaining-rpcs/</guid>
       <description>Remote Procedure Calls (RPCs) are a widely used primitive for communication in distributed applications. In short, they allow a client the ability to invoke a function on a remote server. gRPC, REST, Apache Thrift, and Cap&amp;rsquo;n Proto are just some of the ways that RPCs are used today. However, RPCs only allow for client-server communication patterns. RPC Chains from Microsoft Research are meant to address that.
-Execution Flow of regular RPCs (left) vs RPC Chains (right)  Rather than issue all requests from the client, along with every request, the client attaches some chaining logic that runs after the RPC is executed.</description>
+Rather than issue all requests from the client, along with every request, the client attaches some chaining logic that runs after the RPC is executed.</description>
     </item>
     
     <item>
@@ -107,7 +97,7 @@ Execution Flow of regular RPCs (left) vs RPC Chains (right)  Rather than issue a
       
       <guid>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</guid>
       <description>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: a, b, c, &amp;hellip; will to refer to binary variables while x, y, z, &amp;hellip; will refer to integer variables unless otherwise specified. Syntax follows the CPLEX LP file format.
-Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations</description>
+Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations To make c = a AND b</description>
     </item>
     
     <item>
@@ -116,7 +106,7 @@ Contents  Boolean Operations At Most One is True Product of Binary and (Bounded)
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://uluyol.xyz/blog/fast-data-migration/</guid>
-      <description>An SOSP&amp;rsquo;17 paper from the University of Utah used an interesting approach to speed up data migration. As usual, none of the techniques themselves are new, but the way they are applied is. This paper aims to improve the performance of data migration in an in-memory key-value store. The main goals are to migrate data without any loss in availability, minimal disruption to latency, and to complete the migration as quickly as possible.</description>
+      <description>An SOSP&#39;17 paper from the University of Utah used an interesting approach to speed up data migration. As usual, none of the techniques themselves are new, but the way they are applied is. This paper aims to improve the performance of data migration in an in-memory key-value store. The main goals are to migrate data without any loss in availability, minimal disruption to latency, and to complete the migration as quickly as possible.</description>
     </item>
     
     <item>
@@ -137,7 +127,7 @@ To start, we will assume that most data has not been corrupted.</description>
       <guid>https://uluyol.xyz/blog/container-based-hosting/</guid>
       <description>I recently switched hosting providers. In the process, I decided to switch to running all my services inside of containers.
 Why? Let&amp;rsquo;s take a look at my previous server environment: I had
- Some version of nginx serving static files and acting as a reverse proxy for gogs and ghost Let&amp;rsquo;s Encrypt client running periodically and copying certificates for nginx  Init or cron would run this, maybe both?  Some version of Ghost running under some version of node.</description>
+ Some version of nginx serving static files and acting as a reverse proxy for gogs and ghost Let&amp;rsquo;s Encrypt client running periodically and copying certificates for nginx  Init or cron would run this, maybe both?   Some version of Ghost running under some version of node.</description>
     </item>
     
     <item>
@@ -158,7 +148,7 @@ Why? Let&amp;rsquo;s take a look at my previous server environment: I had
       <guid>https://uluyol.xyz/blog/this-blog-brought-to-you-by-vultr/</guid>
       <description>As I recently switched hosting providers, I thought I&amp;rsquo;d offer a quick comparison between them. I am not receiving any commission for this post.
 This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someone who lives in the US, Europe-based hosting has annoyingly high latency. I recently found out about Vultr and am now using their smallest offering. Below is a quick spec comparison:
- Scaleway C1Vultr   CPU4-Core ARMv7Single-Core 2.</description>
+NOTE: Scaleway now has better offerings than the C1 for the price: an Intel Atom-Based VPS and some ARMv8 options.</description>
     </item>
     
     <item>
@@ -167,17 +157,7 @@ This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someo
       <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>https://uluyol.xyz/notes/device-meta-output/</guid>
-      <description>Width Height Device-Pixel-Ratio User-Agent   document.getElementById(&#34;meta-devwidth&#34;).innerHTML = window.screen.width; document.getElementById(&#34;meta-devheight&#34;).innerHTML = window.screen.height; document.getElementById(&#34;meta-devpixelratio&#34;).innerHTML = window.devicePixelRatio; document.getElementById(&#34;meta-useragent&#34;).innerHTML = navigator.userAgent;  </description>
-    </item>
-    
-    <item>
-      <title>Go Dependency Management</title>
-      <link>https://uluyol.xyz/blog/go-dependency-management/</link>
-      <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://uluyol.xyz/blog/go-dependency-management/</guid>
-      <description>Different languages have different ways of managing dependencies. C/C++ don&amp;rsquo;t do any of this for you. Newer languages have tools like pip, npm, maven, etc. to handle dependencies.
-Go packages are typically referred to through URLs (e.g. github.com/coreos/etcd/clientv3). This is nice because it&amp;rsquo;s completely decentralized. However, Go doesn&amp;rsquo;t have any notion of package versions. This means that the go tool will always fetch the git HEAD of the repository. The recommendation from the Go team to solve this has been to vendor dependencies (i.</description>
+      <description></description>
     </item>
     
     <item>

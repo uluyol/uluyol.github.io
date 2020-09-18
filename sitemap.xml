@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -10,7 +10,6 @@
   <url>
     <loc>https://uluyol.xyz/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -21,13 +20,11 @@
   <url>
     <loc>https://uluyol.xyz/notes/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://uluyol.xyz/photos/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -38,7 +35,6 @@
   <url>
     <loc>https://uluyol.xyz/blog/</loc>
     <lastmod>2018-11-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -49,11 +45,6 @@
   <url>
     <loc>https://uluyol.xyz/notes/information-about-industry/</loc>
     <lastmod>2018-10-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://uluyol.xyz/blog/thoughts-on-reddit-arch-evolution/</loc>
-    <lastmod>2018-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -107,23 +98,16 @@
   </url>
   
   <url>
-    <loc>https://uluyol.xyz/blog/go-dependency-management/</loc>
-    <lastmod>2016-04-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://uluyol.xyz/blog/raymond-chen-itanium/</loc>
     <lastmod>2015-12-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://uluyol.xyz/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://uluyol.xyz/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
