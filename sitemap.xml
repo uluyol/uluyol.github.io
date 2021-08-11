@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://uluyol.xyz/notes/cxx-tricks/</loc>
-    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+    <loc>https://uluyol.xyz/blog/</loc>
+    <lastmod>2021-08-11T12:07:51-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uluyol.xyz/blog/gsi-award/</loc>
+    <lastmod>2021-08-11T12:07:51-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://uluyol.xyz/</loc>
+    <lastmod>2021-08-11T12:07:51-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uluyol.xyz/notes/cxx-tricks/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -30,11 +40,6 @@
   <url>
     <loc>https://uluyol.xyz/photos/wedding-men/</loc>
     <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://uluyol.xyz/blog/</loc>
-    <lastmod>2018-11-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
