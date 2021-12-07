@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Miscs on Muhammed Uluyol</title>
+    <link>https://uluyol.xyz/misc/</link>
+    <description>Recent content in Miscs on Muhammed Uluyol</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://uluyol.xyz/misc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript Caesar Cipher</title>
+      <link>https://uluyol.xyz/misc/caesar-cipher/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://uluyol.xyz/misc/caesar-cipher/</guid>
+      <description>A simple Caesar (shift) cipher implementation for games or puzzles. This should not be used for any secure application. No data is sent to any server&amp;mdash;it works entirely on your machine.
+function trans(shift, c) { const ca = &#39;a&#39;.charCodeAt(0); const cz = &#39;z&#39;.charCodeAt(0); const cA = &#39;A&#39;.charCodeAt(0); const cZ = &#39;Z&#39;.charCodeAt(0); const c0 = &#39;0&#39;.charCodeAt(0); const c9 = &#39;9&#39;.charCodeAt(0); var code = c.charCodeAt(0); var lower = ca; var upper = cz; if ((ca Encode Decode | Shift (can be negative)   x</description>
+    </item>
+    
+  </channel>
+</rss>

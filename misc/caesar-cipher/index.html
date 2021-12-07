@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /><title>Javascript Caesar Cipher - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/blog/">Blog</a>
+	
+	<a href="/blog/index.xml">Feed</a>
+</div>
+
+
+		<div class="title-text">
+			<h1>Javascript Caesar Cipher</h1>
+			<time class="post-date" datetime="2021-06-12">Dec 6, 2021</time>
+		</div>
+
+		<div class="content">
+			<p>A simple Caesar (shift) cipher implementation for games or puzzles. This should not be used for any secure application. No data is sent to any server&mdash;it works entirely on your machine.</p>
+
+
+
+<script type="text/javascript">
+function trans(shift, c) {
+  const ca = 'a'.charCodeAt(0);
+  const cz = 'z'.charCodeAt(0);
+  const cA = 'A'.charCodeAt(0);
+  const cZ = 'Z'.charCodeAt(0);
+  const c0 = '0'.charCodeAt(0);
+  const c9 = '9'.charCodeAt(0);
+
+  var code = c.charCodeAt(0);
+  var lower = ca;
+  var upper = cz;
+
+  if ((ca <= code) && (code <= cz)) {
+    lower = ca;
+    upper = cz;
+  } else if ((cA <= code) && (code <= cZ)) {
+    lower = cA;
+    upper = cZ;
+  } else if ((c0 <= code) && (code <= c9)) {
+    lower = c0;
+    upper = c9;
+  } else {
+    return c;
+  }
+
+  const crange = upper - lower + 1;
+  var t = code - lower;
+  t += shift + crange;
+  t %= crange;
+  t += lower;
+  return String.fromCharCode(t);
+}
+
+function shiftText(shift, input) {
+  var txt = [];
+  for (const c of input) {
+    txt.push(trans(shift, c));
+  }
+  return txt.join("");
+}
+
+function convert() {
+  const shift = Number(document.getElementById('caesar-shift').value);
+  var out = document.getElementById('caesar-out');
+
+  if (isNaN(shift)) {
+    out.innerText = 'Shift must be a number';
+    return;
+  }
+
+  const shouldEncode = document.getElementById('caesar-encode').checked;
+  const shouldDecode = document.getElementById('caesar-decode').checked;
+
+  const input = document.getElementById('caesar-txt').value;
+
+  if (shouldEncode && shouldDecode) {
+    out.innerText = 'Cannot set both encode and decode';
+  } else if (shouldEncode) {
+    out.innerText = shiftText(shift, input);
+  } else if (shouldDecode) {
+    out.innerText = shiftText(-shift, input);
+  } else {
+    out.innerText = 'Either encode or decode must be set';
+  }
+}
+</script>
+
+<input type="radio" id="caesar-encode" name="caesar-action" value="p1" oninput="convert()" checked> 
+<label for="caesar-encode">Encode</label>
+
+<input type="radio" id="caesar-decode" name="caesar-action" value="p2" oninput="convert()">
+<label for="caesar-decode">Decode</label>
+|
+Shift <input type="text" id="caesar-shift" size=3 value="1" oninput="convert()"> (can be negative)
+<br>
+<div style="margin:1em"></div>
+<textarea id="caesar-txt" rows="8" cols="72" oninput="convert()">
+</textarea>
+
+<p id="caesar-out" style="border: 1px solid black; background:#eee; padding: 0.5em;">x</p>
+
+
+
+		</div>
+	</div>
+</body>
+</html>
