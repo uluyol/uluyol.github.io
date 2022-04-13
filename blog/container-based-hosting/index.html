@@ -17,11 +17,12 @@
 		<div class="nav">
 	<a href="/">Home</a>
 	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/me/20220413-cv.pdf">CV</a>
+	<a href="/me/20220413-resume.pdf">Resume</a>
 	<a href="/blog/">Blog</a>
 	
-	<a href="/blog/index.xml">Feed</a>
+	<a href="/blog/index.xml">RSS</a>
 </div>
-
 
 		<div class="title-text">
 			<h1>Container-Based Hosting</h1>
@@ -62,7 +63,7 @@
 <p>Because rkt has no trouble launching docker images and because it&rsquo;s so much easier to find docker images than <a href="https://coreos.com/rkt/docs/latest/app-container.html">ACI</a> (rkt-native) images, I didn&rsquo;t even bother to look for ACI images. I needed images for 3 pieces of software: an http server &amp; reverse-proxy, <a href="https://ghost.org">ghost</a>, and a git server. Because containers are so new, sometimes I would run into issues. I had a difficult time figuring out how to make <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> work with nginx inside dockers, so I gave up and decided to use <a href="https://caddyserver.com/">Caddy</a> instead. Besides that, setting things up wasn&rsquo;t any more difficult than with a non-container based installation.</p>
 <h2 id="configuration">Configuration</h2>
 <p>I decided to create systemd unit files to launch and manage all of my services. Had I needed multiple machines, I probably would have used <a href="https://kubernetes.io">kubernetes</a>, but that would have been overkill for a single server. Once you learn the basic syntax, creating systemd unit files is really simple. Here&rsquo;s an example one I used to launch ghost:</p>
-<pre><code>[Unit]
+<pre tabindex="0"><code>[Unit]
 Description=Ghost
 Requires=network-online.target
 

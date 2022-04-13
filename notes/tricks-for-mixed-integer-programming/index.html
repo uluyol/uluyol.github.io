@@ -17,11 +17,12 @@
 		<div class="nav">
 	<a href="/">Home</a>
 	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/me/20220413-cv.pdf">CV</a>
+	<a href="/me/20220413-resume.pdf">Resume</a>
 	<a href="/blog/">Blog</a>
 	
-	<a href="/blog/index.xml">Feed</a>
+	<a href="/blog/index.xml">RSS</a>
 </div>
-
 
 		<div class="title-text">
 			<h1>Tricks for Mixed Integer Programming</h1>
@@ -45,12 +46,12 @@
 <h2 id="boolean-operations">Boolean Operations</h2>
 <!-- raw HTML omitted -->
 <p>To make <code>c = a AND b</code></p>
-<pre><code>a + b - 2c &lt;= 1
+<pre tabindex="0"><code>a + b - 2c &lt;= 1
 a + b - 2c &gt;= 0
 </code></pre><p><strong>Proof:</strong></p>
 <!-- raw HTML omitted -->
 <p>To make <code>c = a OR b</code></p>
-<pre><code>2c - a - b &lt;= 1
+<pre tabindex="0"><code>2c - a - b &lt;= 1
 2c - a - b &gt;= 0
 </code></pre><p><strong>Proof:</strong></p>
 <!-- raw HTML omitted -->
@@ -59,14 +60,14 @@ a + b - 2c &gt;= 0
 <h2 id="at-most-one-is-true">At Most One is True</h2>
 <!-- raw HTML omitted -->
 <p>To make at most one of a1, a2, &hellip;, aN be true:</p>
-<pre><code>    a1 + a2 + ... + aN &lt;= 1
+<pre tabindex="0"><code>    a1 + a2 + ... + aN &lt;= 1
 </code></pre><p><strong>Proof:</strong>
 Assume any <code>ai</code>, <code>aj</code> true where <code>i != j</code>, then the sum is 2. Hence, at most one can be true. If on the other hand, at most one <code>ai</code> is true, the inequality is also true.</p>
 <!-- raw HTML omitted -->
 <h2 id="product-of-binary-and-bounded-integer-variables">Product of Binary and (Bounded) Integer Variables</h2>
 <!-- raw HTML omitted -->
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> (any upper bound will do). To make <code>y = a * x</code></p>
-<pre><code>y - Ka &lt;= 0
+<pre tabindex="0"><code>y - Ka &lt;= 0
 y - x &lt;= 0
 y - x - Ka &gt;= -K
 y &gt;= 0
@@ -76,7 +77,7 @@ y &gt;= 0
 <h2 id="bounded-integer-comparison-result">(Bounded) Integer Comparison Result</h2>
 <!-- raw HTML omitted -->
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> and that <code>0 &lt;= y &lt;= K</code> (any upper bound will do). To make <code>a = 1 iff (x &gt;= y)</code></p>
-<pre><code>y - x + Ka &lt;= K
+<pre tabindex="0"><code>y - x + Ka &lt;= K
 y - x + Ka &gt;= 1
 </code></pre><p><strong>Proof:</strong></p>
 <ul>
@@ -118,7 +119,7 @@ y - x + Ka &gt;= 1
 <h2 id="bounded-integer-comparison-bound">(Bounded) Integer Comparison Bound</h2>
 <!-- raw HTML omitted -->
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> and that <code>0 &lt;= y &lt;= K</code> (any upper bound will do). To make <code>a ≤ 1 if (x &gt;= y)</code> and <code>a = 0</code> otherwise</p>
-<pre><code>y - x + Ka &lt;= K
+<pre tabindex="0"><code>y - x + Ka &lt;= K
 </code></pre><p><strong>Proof</strong>:</p>
 <ul>
 <li>Case <code>x &gt;= y</code> then <code>y - x &lt;= 0</code>
@@ -154,28 +155,28 @@ y - x + Ka &gt;= 1
 <h2 id="rounded-up-division-by-constant">Rounded Up Division by Constant</h2>
 <!-- raw HTML omitted -->
 <p>We will assume that <code>x</code> and <code>z</code> are integers and that <code>K &gt;= 2</code>. To make <code>z = ceil(x/K)</code></p>
-<pre><code>x - Kz &lt;= 0
+<pre tabindex="0"><code>x - Kz &lt;= 0
 Kz - x &lt;= K - 1/K
 </code></pre><p><strong>Proof</strong>:</p>
 <p>Combining the two constraints yields</p>
-<pre><code>  x &lt;= Kz &lt;= x + (K - 1/K)
+<pre tabindex="0"><code>  x &lt;= Kz &lt;= x + (K - 1/K)
 x/K &lt;=  z &lt;= x/K + (1 - 1/K^2)
 </code></pre><p>The lower bound is obviously correct since <code>z &gt;= ceil(x/K)</code> by definition requires that <code>z &gt;= x/K</code>.</p>
 <p>The open question is whether the right hand side is correct. For this to work, we need that our upper bound is <code>&gt;= ceil(x/K)</code> and <code>&lt; ceil(x+K) + 1</code> (strict inequality).</p>
 <p>For the upper bound of the upper bound, we have that</p>
-<pre><code>ceil(x/K) + 1 &gt; ceil(x/K) + (1 - 1/K^2)
+<pre tabindex="0"><code>ceil(x/K) + 1 &gt; ceil(x/K) + (1 - 1/K^2)
               &gt; x/K + (1 - 1/K^2)
 </code></pre><p>To compute the lower bound of the upper bound, we first define <code>x = Km + r</code> where <code>0 &lt;= r &lt; K</code>. Then we have</p>
-<pre><code>x/K + (1 - 1/K^2) = (m + r/K) + (1 - 1/K^2)
+<pre tabindex="0"><code>x/K + (1 - 1/K^2) = (m + r/K) + (1 - 1/K^2)
                   = (m + 1) + r/K - 1/K^2
 </code></pre><p><em>Case 1</em>: <code>r = 0</code></p>
 <p>Then <code>ceil(x/K) = m</code> and</p>
-<pre><code>x/K + (1 - 1/K^2) = m + 1 + 0/K - 1/K^2
+<pre tabindex="0"><code>x/K + (1 - 1/K^2) = m + 1 + 0/K - 1/K^2
                   = ceil(x/K) + 1 - 1/K^2
                   &gt;= ceil(x/K)
 </code></pre><p><em>Case 2</em>: <code>r &gt;= 1</code></p>
 <p>Then <code>ceil(x/K) = m + 1</code> and</p>
-<pre><code>x/K + (1 - 1/K^2) = (m + 1) + r/K - 1/K^2
+<pre tabindex="0"><code>x/K + (1 - 1/K^2) = (m + 1) + r/K - 1/K^2
                   = ceil(x/K) + r/K - 1/K^2
                   &gt;= ceil(x/K) + 1/K - 1/K^2
                   &gt;= ceil(x/K)
@@ -183,19 +184,19 @@ x/K &lt;=  z &lt;= x/K + (1 - 1/K^2)
 <h2 id="rounded-down-division-by-constant">Rounded Down Division by Constant</h2>
 <!-- raw HTML omitted -->
 <p>We will assume that <code>x</code> and <code>z</code> are integers and that <code>K &gt;= 2</code>. To make <code>z = floor(x/K)</code></p>
-<pre><code>Kz - x &lt;= 0
+<pre tabindex="0"><code>Kz - x &lt;= 0
 x - Kz &lt;= K - 1/K
 </code></pre><p><strong>Proof</strong>:</p>
 <p>Combining the two constraints yields</p>
-<pre><code>    x - K + 1/K &lt;= Kz &lt;= x
+<pre tabindex="0"><code>    x - K + 1/K &lt;= Kz &lt;= x
 x/K - 1 + 1/K^2 &lt;=  z &lt;= x/K
 </code></pre><p>The upper bound is obviously correct since <code>z &lt;= floor(x/K)</code> by definition requires that <code>z &lt;= x/K</code>.</p>
 <p>The open question is whether the left hand size is correct. For this to work, we need that our lower bound is <code>&lt;= floor(x/K)</code> and <code>&gt; floor(x/K) - 1</code> (strict inequality).</p>
 <p>For the lower bound of the lower bound, we have that</p>
-<pre><code>floor(x/K) - 1 &lt; floor(x/K) - (1 - 1/K^2)
+<pre tabindex="0"><code>floor(x/K) - 1 &lt; floor(x/K) - (1 - 1/K^2)
                &lt; x/K - 1 + 1/K^2
 </code></pre><p>To compute the upper bound of the lower bound, we first define <code>x = Km + r</code> where <code>0 &lt;= r &lt; K</code>. Then we have that <code>floor(x/K) = m</code> and</p>
-<pre><code>x/K - 1 + 1/K^2 = (m + r/K) - 1 + 1/K^2
+<pre tabindex="0"><code>x/K - 1 + 1/K^2 = (m + r/K) - 1 + 1/K^2
                 = m - 1 + r/K + 1/K^2
                 = floor(x/K) - 1 + r/K + 1/K^2
                 &lt;= floor(x/K) - 1 + (K-1)/K + 1/K^2
