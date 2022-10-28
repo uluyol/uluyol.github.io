@@ -6,7 +6,17 @@
     <description>Recent content on Muhammed Uluyol</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://uluyol.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 10:47:42 -0700</lastBuildDate><atom:link href="https://uluyol.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing With Fewer Mocks</title>
+      <link>https://uluyol.xyz/blog/testing-with-fewer-mocks/</link>
+      <pubDate>Fri, 28 Oct 2022 10:47:42 -0700</pubDate>
+      
+      <guid>https://uluyol.xyz/blog/testing-with-fewer-mocks/</guid>
+      <description>While I was working on HEYP, I implemented a monte carlo simulator to study the behavior of a particular component. As part of this, I wrote a loop that looked something like this (written in C++1):
+ProcessResult ProcessFunc(Scenario* scenario) { ProcessResult res; for (int i = 0; i &amp;lt; kMaxIters; i++) { auto stats = scenario-&amp;gt;RunOneIter(); res.all_stats.push_back(stats); bool stopEarly = // look at the values in stats and see if we should terminate early if (stopEarly) { // process more stats and set some fields in res break; } else { // other processing in res } } return res; } This sort of code is difficult to test as is.</description>
+    </item>
+    
     <item>
       <title>Javascript Caesar Cipher</title>
       <link>https://uluyol.xyz/misc/caesar-cipher/</link>

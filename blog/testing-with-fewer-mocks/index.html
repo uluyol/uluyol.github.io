@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /><title>Testing With Fewer Mocks - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/me/20220915-cv.pdf">CV</a>
+	<a href="/blog/">Blog</a>
+	
+	<a href="/blog/index.xml">RSS</a>
+</div>
+
+		<div class="title-text">
+			<h1>Testing With Fewer Mocks</h1>
+			<time class="post-date" datetime="2022-28-10">Oct 28, 2022</time>
+		</div>
+
+		<div class="content">
+			<p>While I was working on HEYP,
+I implemented a <a href="https://github.com/uluyol/heyp-agents/tree/main/go/intradc/feedbacksim">monte carlo simulator</a> to study the behavior of a particular component.
+As part of this, I wrote a loop that looked something like this (written in C++<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>):</p>
+<pre tabindex="0"><code>ProcessResult ProcessFunc(Scenario* scenario) {
+  ProcessResult res;
+  for (int i = 0; i &lt; kMaxIters; i++) {
+    auto stats = scenario-&gt;RunOneIter();
+    res.all_stats.push_back(stats);
+    bool stopEarly = // look at the values in stats and see if we should terminate early
+    if (stopEarly) {
+      // process more stats and set some fields in res
+      break;
+    } else {
+      // other processing in res
+    }
+  }
+  return res;
+}
+</code></pre><p>This sort of code is difficult to test as is.
+It directly calls into dependent code (in this case <code>Scenario::RunOneIter</code>),
+and makes decisions based on those values.
+If we tried to test the code as a whole, we&rsquo;d have to properly set up a <code>Scenario</code>
+— which is itself an effort — and then look only at the final result.
+So comprehensive testing would require many cases,
+each with setup code that is more complex than the rest of the test.</p>
+<h1 id="option-1-mock-scenario">Option 1: Mock <code>Scenario</code></h1>
+<p>One of the ways we could simplify testing, would be to mock <code>Scenario</code>.
+Then we could configure the <code>MockScenario</code> to return the values we&rsquo;d like in each call.
+Using <a href="https://google.github.io/googletest/">gmock</a>, This would work as follows:</p>
+<pre tabindex="0"><code>TEST(ProcessFuncTest, Case1) {
+  StrickMock&lt;MockScenario&gt; scenario;
+  {
+    InSequence seq;
+    EXPECT_CALL(scenario, RunOneIter()).Returns(IterResult{/* first ... */}).Times(1);
+    EXPECT_CALL(scenario, RunOneIter()).Returns(IterResult{/* second ... */}).Times(1);
+    /* ... */
+    EXPECT_CALL(scenario, RunOneIter()).Returns(IterResult{/* nth ... */}).Times(1);
+  }
+  EXPECT_EQ(ProcessFunc(&amp;scenario), ProcessResult{/* expected */});
+}
+</code></pre><p>This approach works, but it is a little awkward.
+The expectations on <code>MockScenario</code> are tied deeply to the implementation of <code>ProcessFunc</code>,
+so it would be difficult for someone reading this to understand the test.
+Also, we are specifying what we want to see before it happens,
+rather than as it&rsquo;s happening, and reading things out of order is always confusing.</p>
+<h1 id="option-2-make-processfunc-wrap-a-state-machine">Option 2: Make <code>ProcessFunc</code> Wrap a State Machine</h1>
+<p>An alternative is to make <code>ProcessFunc</code> a thin wrapper around a state machine.</p>
+<pre tabindex="0"><code>class ProcessLoopState {
+ public:
+  explicit ProcessLoopState(int max_iters);
+
+  // RecordIter returns true if we should continue processing, false if we should stop.
+  bool RecordIter(IterResult iter_result);
+  ProcessResult GetResult();
+};
+
+ProcessResult ProcessFunc(Scenario* scenario) {
+  ProcessLoopState state(kMaxIters);
+  while (state.RecordIter(scenario-&gt;RunOneIter())) {
+    /* keep recording */
+  }
+  return state.GetResult();
+}
+</code></pre><p>We can focus our effort on testing <code>ProcessLoopState</code>,
+and ensure that it achieves the correct control flow.</p>
+<pre tabindex="0"><code>TEST(ProcessLoopStateTest, Case1) {
+  ProcessLoopState state(kMaxIters);
+  ASSERT_TRUE(state.RecordIter(IterResult{/* first ... */}));
+  ASSERT_TRUE(state.RecordIter(IterResult{/* second ... */}));
+  /* ... */
+  ASSERT_FALSE(state.RecordIter(IterResult{/* nth ... */}));
+  EXPECT_EQ(state.GetResult(), ProcessResult{/* expected */});
+}
+</code></pre><p>The control flow and expectations are now all in order, so it should be easy to follow.
+If we wanted to test <code>ProcessFunc</code>,
+we would only need to write a basic test to ensure that it&rsquo;s really calling into
+<code>Scenario::RunOneIter</code>, looping, and returning a reasonable result.</p>
+<p>This transformation also has an added benefit.
+Since there are no calls into <code>Scenario</code> at all,
+<code>ProcessFunc</code> can accept a concrete type with no virtual methods.
+This can improve performance and simplify the code
+(as there is no need to define an interfaces or question which type is being passed in).</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The state machine approach offers clarity compared to mocking,
+and it potentially improves performance by avoiding indirect method lookups.
+On the other hand, it can be more verbose since we are introducing an additional type.
+Regardless, it&rsquo;s a nice trick to have on hand when the situation calls for it.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>I used C++ because I am more familiar with gmock than any mocking tools for Go.
+In Go I typically hand write or avoid mocks.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://uluyol.xyz/blog/</loc>
+    <lastmod>2022-10-28T10:47:42-07:00</lastmod>
+  </url><url>
+    <loc>https://uluyol.xyz/</loc>
+    <lastmod>2022-10-28T10:47:42-07:00</lastmod>
+  </url><url>
+    <loc>https://uluyol.xyz/blog/testing-with-fewer-mocks/</loc>
+    <lastmod>2022-10-28T10:47:42-07:00</lastmod>
+  </url><url>
     <loc>https://uluyol.xyz/misc/caesar-cipher/</loc>
     <lastmod>2021-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://uluyol.xyz/misc/</loc>
     <lastmod>2021-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://uluyol.xyz/</loc>
-    <lastmod>2021-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://uluyol.xyz/blog/</loc>
-    <lastmod>2021-08-11T12:07:51-04:00</lastmod>
   </url><url>
     <loc>https://uluyol.xyz/blog/gsi-award/</loc>
     <lastmod>2021-08-11T12:07:51-04:00</lastmod>
