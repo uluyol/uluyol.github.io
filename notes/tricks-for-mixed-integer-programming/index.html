@@ -41,30 +41,84 @@
 <li><a href="#floor-div-constant">Rounded Down Division by Constant</a></li>
 </ol>
 <h1 id="transformations">Transformations</h1>
-<!-- raw HTML omitted -->
+<a name="boolean-ops" class="anchor">
 <h2 id="boolean-operations">Boolean Operations</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>To make <code>c = a AND b</code></p>
 <pre tabindex="0"><code>a + b - 2c &lt;= 1
 a + b - 2c &gt;= 0
 </code></pre><p><strong>Proof:</strong></p>
-<!-- raw HTML omitted -->
+<table>
+<tr>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+    <th>Reason</th>
+</tr>
+<tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td><td>(1 would violate second constraint)</td>
+</tr>
+<tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td><td>(1 would violate second constraint)</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td><td>(1 would violate second constraint)</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td><td>(0 would violate first constraint)</td>
+</tr>
+</table>
 <p>To make <code>c = a OR b</code></p>
 <pre tabindex="0"><code>2c - a - b &lt;= 1
 2c - a - b &gt;= 0
 </code></pre><p><strong>Proof:</strong></p>
-<!-- raw HTML omitted -->
+<table>
+<tr>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+    <th>Reason</th>
+</tr>
+<tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td><td>(1 would violate first constraint)</td>
+</tr>
+<tr>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td><td>(0 would violate second constraint)</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td><td>(0 would violate second constraint)</td>
+</tr>
+<tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td><td>(0 would violate second constraint)</td>
+</tr>
+</table>
 <p>Source: <a href="https://cs.stackexchange.com/a/43884">https://cs.stackexchange.com/a/43884</a></p>
-<!-- raw HTML omitted -->
+<a name="max-one-true" class="anchor">
 <h2 id="at-most-one-is-true">At Most One is True</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>To make at most one of a1, a2, &hellip;, aN be true:</p>
 <pre tabindex="0"><code>    a1 + a2 + ... + aN &lt;= 1
 </code></pre><p><strong>Proof:</strong>
 Assume any <code>ai</code>, <code>aj</code> true where <code>i != j</code>, then the sum is 2. Hence, at most one can be true. If on the other hand, at most one <code>ai</code> is true, the inequality is also true.</p>
-<!-- raw HTML omitted -->
+<a name="prod-bool-int" class="anchor">
 <h2 id="product-of-binary-and-bounded-integer-variables">Product of Binary and (Bounded) Integer Variables</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> (any upper bound will do). To make <code>y = a * x</code></p>
 <pre tabindex="0"><code>y - Ka &lt;= 0
 y - x &lt;= 0
@@ -72,9 +126,9 @@ y - x - Ka &gt;= -K
 y &gt;= 0
 </code></pre><p>A generalized version that uses a non-zero lower bound can be found at the source.</p>
 <p>Source: <a href="https://www.leandro-coelho.com/linearization-product-variables/">https://www.leandro-coelho.com/linearization-product-variables/</a></p>
-<!-- raw HTML omitted -->
+<a name="int-cmp" class="anchor">
 <h2 id="bounded-integer-comparison-result">(Bounded) Integer Comparison Result</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> and that <code>0 &lt;= y &lt;= K</code> (any upper bound will do). To make <code>a = 1 iff (x &gt;= y)</code></p>
 <pre tabindex="0"><code>y - x + Ka &lt;= K
 y - x + Ka &gt;= 1
@@ -114,9 +168,9 @@ y - x + Ka &gt;= 1
 </li>
 </ul>
 <p>Based on <a href="https://blog.adamfurmanek.pl/2015/09/12/ilp-part-4/">https://blog.adamfurmanek.pl/2015/09/12/ilp-part-4/</a></p>
-<!-- raw HTML omitted -->
+<a name="int-cmp-bound" class="anchor">
 <h2 id="bounded-integer-comparison-bound">(Bounded) Integer Comparison Bound</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>We will assume that <code>0 &lt;= x &lt;= K</code> and that <code>0 &lt;= y &lt;= K</code> (any upper bound will do). To make <code>a ≤ 1 if (x &gt;= y)</code> and <code>a = 0</code> otherwise</p>
 <pre tabindex="0"><code>y - x + Ka &lt;= K
 </code></pre><p><strong>Proof</strong>:</p>
@@ -150,9 +204,9 @@ y - x + Ka &gt;= 1
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<a name="ceil-div-constant" class="anchor">
 <h2 id="rounded-up-division-by-constant">Rounded Up Division by Constant</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>We will assume that <code>x</code> and <code>z</code> are integers and that <code>K &gt;= 2</code>. To make <code>z = ceil(x/K)</code></p>
 <pre tabindex="0"><code>x - Kz &lt;= 0
 Kz - x &lt;= K - 1/K
@@ -179,9 +233,9 @@ x/K &lt;=  z &lt;= x/K + (1 - 1/K^2)
                   = ceil(x/K) + r/K - 1/K^2
                   &gt;= ceil(x/K) + 1/K - 1/K^2
                   &gt;= ceil(x/K)
-</code></pre><!-- raw HTML omitted -->
+</code></pre><a name="floor-div-constant" class="anchor">
 <h2 id="rounded-down-division-by-constant">Rounded Down Division by Constant</h2>
-<!-- raw HTML omitted -->
+</a>
 <p>We will assume that <code>x</code> and <code>z</code> are integers and that <code>K &gt;= 2</code>. To make <code>z = floor(x/K)</code></p>
 <pre tabindex="0"><code>Kz - x &lt;= 0
 x - Kz &lt;= K - 1/K

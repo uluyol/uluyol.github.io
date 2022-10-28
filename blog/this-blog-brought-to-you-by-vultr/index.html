@@ -31,8 +31,26 @@
 		<div class="content">
 			<p>As I recently switched hosting providers, I thought I&rsquo;d offer a quick comparison between them. I am not receiving any commission for this post.</p>
 <p>This site used to be hosted on one of <a href="https://www.scaleway.com">Scaleway</a>&rsquo;s C1 machines. As someone who lives in the US, Europe-based hosting has annoyingly high latency. I recently found out about <a href="https://www.vultr.com/">Vultr</a> and am now using their smallest offering. Below is a quick spec comparison:</p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->NOTE: Scaleway now has better offerings than the C1 for the price: an Intel Atom-Based VPS and some ARMv8 options.<!-- raw HTML omitted --></p>
+<table class="table table-striped table-condensed">
+<tr>
+<th></th><th>Scaleway C1</th><th>Vultr</th>
+</tr>
+<tr>
+<th>CPU</th><td>4-Core ARMv7</td><td>Single-Core 2.4GHz Intel (Broadwell?)</td>
+</tr>
+<tr>
+<th>RAM</th><td>2 GB</td><td>512 MB</td>
+</tr>
+<tr>
+<th>SSD</th><td>50 GB</td><td>20 GB</td>
+</tr>
+<tr>
+<th>Bandwidth</th><td>Unlimited</td><td>500 GB</td>
+</tr>
+<tr>
+<th>Cost</th><td>€2.99/month</td><td>$2.50/month</td>
+</table>
+<p><small>NOTE: Scaleway now has better offerings than the C1 for the price: an Intel Atom-Based VPS and some ARMv8 options.</small></p>
 <p>Websites for both services are easy-to-use. I haven&rsquo;t had any trouble with either provider.</p>
 <p>Although Vultr might seem to be the slower option, it (subjectively) feels faster than Scaleway and not just in network latency. 32-Bit ARM cores tend to be really slow compared to latest-gen x86. Compatibility with Vultr is also better, as everything is available for x86. No more jumping through hoops to get things working on ARM. For my uses (static HTTP hosting, blog, git server), Vultr has more than enough memory so that hasn&rsquo;t been an issue. Vultr also has deployment options available globally in 15 locations whereas Scaleway only has locations in Paris and Amsterdam. If latency matters to you (it probably does), this gives you a strong incentive to use Vultr.</p>
 <p>Unfortunately, I didn&rsquo;t collect any hard performance numbers. I didn&rsquo;t think to run any benchmarks before shutting down my Scaleway machine. Maybe next time.</p>

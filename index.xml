@@ -103,7 +103,7 @@ Hardware Specs  Cloudflare  2013 2018   Stack Exchange  2016    Application Desi
       
       <guid>https://uluyol.xyz/blog/chaining-rpcs/</guid>
       <description>Remote Procedure Calls (RPCs) are a widely used primitive for communication in distributed applications. In short, they allow a client the ability to invoke a function on a remote server. gRPC, REST, Apache Thrift, and Cap&amp;rsquo;n Proto are just some of the ways that RPCs are used today. However, RPCs only allow for client-server communication patterns. RPC Chains from Microsoft Research are meant to address that.
-Rather than issue all requests from the client, along with every request, the client attaches some chaining logic that runs after the RPC is executed.</description>
+Execution Flow of regular RPCs (left) vs RPC Chains (right)</description>
     </item>
     
     <item>
@@ -123,7 +123,7 @@ Rather than issue all requests from the client, along with every request, the cl
       
       <guid>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</guid>
       <description>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: a, b, c, &amp;hellip; will to refer to binary variables while x, y, z, &amp;hellip; will refer to integer variables unless otherwise specified. Syntax follows the CPLEX LP file format.
-Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations To make c = a AND b</description>
+Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations  To make c = a AND b</description>
     </item>
     
     <item>
@@ -174,7 +174,7 @@ Why? Let&amp;rsquo;s take a look at my previous server environment: I had
       <guid>https://uluyol.xyz/blog/this-blog-brought-to-you-by-vultr/</guid>
       <description>As I recently switched hosting providers, I thought I&amp;rsquo;d offer a quick comparison between them. I am not receiving any commission for this post.
 This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someone who lives in the US, Europe-based hosting has annoyingly high latency. I recently found out about Vultr and am now using their smallest offering. Below is a quick spec comparison:
-NOTE: Scaleway now has better offerings than the C1 for the price: an Intel Atom-Based VPS and some ARMv8 options.</description>
+ Scaleway C1Vultr   CPU4-Core ARMv7Single-Core 2.</description>
     </item>
     
     <item>
@@ -183,7 +183,7 @@ NOTE: Scaleway now has better offerings than the C1 for the price: an Intel Atom
       <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>https://uluyol.xyz/notes/device-meta-output/</guid>
-      <description></description>
+      <description>Width Height Device-Pixel-Ratio User-Agent   document.getElementById(&#34;meta-devwidth&#34;).innerHTML = window.screen.width; document.getElementById(&#34;meta-devheight&#34;).innerHTML = window.screen.height; document.getElementById(&#34;meta-devpixelratio&#34;).innerHTML = window.devicePixelRatio; document.getElementById(&#34;meta-useragent&#34;).innerHTML = navigator.userAgent;  </description>
     </item>
     
     <item>

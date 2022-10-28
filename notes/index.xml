@@ -43,7 +43,7 @@ Hardware Specs  Cloudflare  2013 2018   Stack Exchange  2016    Application Desi
       
       <guid>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</guid>
       <description>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: a, b, c, &amp;hellip; will to refer to binary variables while x, y, z, &amp;hellip; will refer to integer variables unless otherwise specified. Syntax follows the CPLEX LP file format.
-Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations To make c = a AND b</description>
+Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations  To make c = a AND b</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@ Contents  Boolean Operations At Most One is True Product of Binary and (Bounded)
       <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>https://uluyol.xyz/notes/device-meta-output/</guid>
-      <description></description>
+      <description>Width Height Device-Pixel-Ratio User-Agent   document.getElementById(&#34;meta-devwidth&#34;).innerHTML = window.screen.width; document.getElementById(&#34;meta-devheight&#34;).innerHTML = window.screen.height; document.getElementById(&#34;meta-devpixelratio&#34;).innerHTML = window.devicePixelRatio; document.getElementById(&#34;meta-useragent&#34;).innerHTML = navigator.userAgent;  </description>
     </item>
     
   </channel>

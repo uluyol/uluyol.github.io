@@ -30,7 +30,10 @@
 
 		<div class="content">
 			<p>Remote Procedure Calls (RPCs) are a widely used primitive for communication in distributed applications. In short, they allow a client the ability to invoke a function on a remote server. <a href="https://grpc.io/">gRPC</a>, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>, <a href="https://thrift.apache.org/">Apache Thrift</a>, and <a href="https://capnproto.org/">Cap&rsquo;n Proto</a> are just some of the ways that RPCs are used today. However, RPCs only allow for client-server communication patterns. <a href="https://www.usenix.org/legacy/event/nsdi09/tech/full_papers/song/song.pdf">RPC Chains</a> from Microsoft Research are meant to address that.</p>
-<!-- raw HTML omitted -->
+<div style="max-width: 550px; margin: 0 auto; text-align: center" markdown="1">
+<p><img src="/blog-static/chaining-rpcs/introfig.jpg" alt="Chain vs RPCs">
+<br>Execution Flow of regular RPCs (left) vs RPC Chains (right)</p>
+</div>
 <p>Rather than issue all requests from the client, along with every request, the client attaches some <em>chaining logic</em> that runs after the RPC is executed. This chaining logic decides where the request should go to next and what RPC should be executed. By building these chains, unnecessary network hops can be avoided, and it can be possible to save on both latency <em>and</em> bandwidth. In a wide-area setting, the latency benefits can be especially nice when a request from one data center needs to execute some logic in a few services in a second, flow to a third, and come back to the client.</p>
 <h1 id="chaining-mechanism">Chaining Mechanism</h1>
 <p>Some interesting questions come up when building RPC chains:</p>
