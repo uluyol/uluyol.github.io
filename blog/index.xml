@@ -34,7 +34,7 @@ I will be a GSI for EECS 491 this Fall, so hopefully I can live up to this stand
       
       <guid>https://uluyol.xyz/blog/hashicorp-on-why-multi-cloud/</guid>
       <description>Mitchell Hashimoto (Hashicorp Founder and CTO) commented on Reddit on why certain corporations care about Multi-Cloud deployments. I have copied the original post below:
- This is something I can provide very broad real world insight into. I routinely talk with dozens of users and paying customers that are multi-cloud (biased towards the Global 2000 size) and can share the real reasons why folks are doing this.
+This is something I can provide very broad real world insight into. I routinely talk with dozens of users and paying customers that are multi-cloud (biased towards the Global 2000 size) and can share the real reasons why folks are doing this.
 First, if you&amp;rsquo;re a small company, you probably don&amp;rsquo;t want to think about multi-cloud.</description>
     </item>
     
@@ -45,7 +45,7 @@ First, if you&amp;rsquo;re a small company, you probably don&amp;rsquo;t want to
       
       <guid>https://uluyol.xyz/blog/raymond-chens-powerpc/</guid>
       <description>Following his other architecture series, here is an architecture series on the PowerPC 600 by Raymond Chen:
- Part 1: Introduction Part 2: Condition registers and the integer exception register Part 3: Arithmetic Part 4: Bitwise operations and constants Part 5: Rotates and shifts Part 6: Memory access Part 7: Atomic memory access and cache coherency Part 8: Control transfer Part 9: The table of contents Part 10: Passing parameters, function prologues and epilogues Part 11: Glue routines Part 12: leaf functions Part 13: Common patterns Part 14: Code walkthrough  </description>
+Part 1: Introduction Part 2: Condition registers and the integer exception register Part 3: Arithmetic Part 4: Bitwise operations and constants Part 5: Rotates and shifts Part 6: Memory access Part 7: Atomic memory access and cache coherency Part 8: Control transfer Part 9: The table of contents Part 10: Passing parameters, function prologues and epilogues Part 11: Glue routines Part 12: leaf functions Part 13: Common patterns Part 14: Code walkthrough </description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ Execution Flow of regular RPCs (left) vs RPC Chains (right)</description>
       
       <guid>https://uluyol.xyz/blog/raymond-chens-mips-r4000/</guid>
       <description>Following his series on the Itanium architecture and Alpha AXP, here is yet another architecture series by Raymond Chen:
- Part 1: Introduction Part 2: 32-bit Integer Calculations Part 3: Multiplication, Division, and the Temperamental HI and LO Registers Part 4: Constants Part 5: Memory Access (Aligned) Part 6: Memory Access (Unaligned) Part 7: Memory Access (Atomic) Part 8: Control Transfer Part 9: Stupid Branch Delay Slot Tricks Part 10: Trampolines and Stubs Part 11: More on Branch Delay Slots Part 12: Calling Convention Part 13: Function Prologues and Epilogues Part 14: Common patterns Part 15: Code Walkthrough  </description>
+Part 1: Introduction Part 2: 32-bit Integer Calculations Part 3: Multiplication, Division, and the Temperamental HI and LO Registers Part 4: Constants Part 5: Memory Access (Aligned) Part 6: Memory Access (Unaligned) Part 7: Memory Access (Atomic) Part 8: Control Transfer Part 9: Stupid Branch Delay Slot Tricks Part 10: Trampolines and Stubs Part 11: More on Branch Delay Slots Part 12: Calling Convention Part 13: Function Prologues and Epilogues Part 14: Common patterns Part 15: Code Walkthrough </description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@ To start, we will assume that most data has not been corrupted.</description>
       <guid>https://uluyol.xyz/blog/container-based-hosting/</guid>
       <description>I recently switched hosting providers. In the process, I decided to switch to running all my services inside of containers.
 Why? Let&amp;rsquo;s take a look at my previous server environment: I had
- Some version of nginx serving static files and acting as a reverse proxy for gogs and ghost Let&amp;rsquo;s Encrypt client running periodically and copying certificates for nginx  Init or cron would run this, maybe both?   Some version of Ghost running under some version of node.</description>
+Some version of nginx serving static files and acting as a reverse proxy for gogs and ghost Let&amp;rsquo;s Encrypt client running periodically and copying certificates for nginx Init or cron would run this, maybe both? Some version of Ghost running under some version of node.</description>
     </item>
     
     <item>
@@ -105,7 +105,7 @@ Why? Let&amp;rsquo;s take a look at my previous server environment: I had
       
       <guid>https://uluyol.xyz/blog/raymond-chens-alpha-axp-series/</guid>
       <description>Raymond Chen previously wrote an excellent series of posts on the Itanium archicture, and now he&amp;rsquo;s followed that up with a series on the Alpha AXP. Below are links to the whole series:
- Part 1: Initial plunge Part 2: Integer calculations Part 3: Integer constants Part 4: Bit 15. Ugh. Bit 15. Part 5: Conditional operations and control flow Part 6: Memory access, basics Part 7: Memory access, loading unaligned data Part 8: Memory access, storing bytes and words and unaligned data Part 9: The memory model and atomic memory operations Part 10: Atomic updates to byte and word memory units Part 11: Processor faults Part 12: How you detect carry on a processor with no carry?</description>
+Part 1: Initial plunge Part 2: Integer calculations Part 3: Integer constants Part 4: Bit 15. Ugh. Bit 15. Part 5: Conditional operations and control flow Part 6: Memory access, basics Part 7: Memory access, loading unaligned data Part 8: Memory access, storing bytes and words and unaligned data Part 9: The memory model and atomic memory operations Part 10: Atomic updates to byte and word memory units Part 11: Processor faults Part 12: How you detect carry on a processor with no carry?</description>
     </item>
     
     <item>
@@ -116,7 +116,7 @@ Why? Let&amp;rsquo;s take a look at my previous server environment: I had
       <guid>https://uluyol.xyz/blog/this-blog-brought-to-you-by-vultr/</guid>
       <description>As I recently switched hosting providers, I thought I&amp;rsquo;d offer a quick comparison between them. I am not receiving any commission for this post.
 This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someone who lives in the US, Europe-based hosting has annoyingly high latency. I recently found out about Vultr and am now using their smallest offering. Below is a quick spec comparison:
- Scaleway C1Vultr   CPU4-Core ARMv7Single-Core 2.</description>
+Scaleway C1Vultr CPU4-Core ARMv7Single-Core 2.</description>
     </item>
     
     <item>
@@ -126,7 +126,7 @@ This site used to be hosted on one of Scaleway&amp;rsquo;s C1 machines. As someo
       
       <guid>https://uluyol.xyz/blog/raymond-chen-itanium/</guid>
       <description>Raymond Chen wrote a very interesting introduction to the Itanium architecture and how it is used in Windows. I have collected links for the series of posts below:
- Part 1: Warming up Part 2: Instruction encoding, templates, and stops Part 3: The Windows calling convention, how parameters are passed Part 3b: How does spilling actually work? Part 4: The Windows calling convention, leaf functions Part 5: The GP register, calling functions, and function pointers Part 6: Calculating conditionals Part 7: Speculative loads Part 8: Advanced loads Part 9: Counted loops and loop pipelining Part 10: Register rotation  </description>
+Part 1: Warming up Part 2: Instruction encoding, templates, and stops Part 3: The Windows calling convention, how parameters are passed Part 3b: How does spilling actually work? Part 4: The Windows calling convention, leaf functions Part 5: The GP register, calling functions, and function pointers Part 6: Calculating conditionals Part 7: Speculative loads Part 8: Advanced loads Part 9: Counted loops and loop pipelining Part 10: Register rotation </description>
     </item>
     
   </channel>

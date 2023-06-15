@@ -14,7 +14,7 @@
       
       <guid>https://uluyol.xyz/notes/cxx-tricks/</guid>
       <description>C++ is one hell of a programming language (for better or worse). This is a collection of C++ programming tricks that are useful, interesting, or just plain crazy:
- Detecting in C++ whether a type is defined (Raymond Chen)  Part 1: The initial plunge Part 2: Giving it a special name Part 3: SFINAE and incomplete types Part 4: Predeclaring things you want to probe Part 5: Augmenting the basic pattern    </description>
+Detecting in C++ whether a type is defined (Raymond Chen) Part 1: The initial plunge Part 2: Giving it a special name Part 3: SFINAE and incomplete types Part 4: Predeclaring things you want to probe Part 5: Augmenting the basic pattern </description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://uluyol.xyz/notes/collection/</guid>
-      <description>Of Active Interest  Collection of articles from industry about things Tricks for mixed integer programming  The Rest Links to Some of my Projects  xkcd feed with captions  Compilers and Runtime Environments  WebAssembly for Edge Computing: @Cloudflare, @Fastly Mini-series on JVM internals, 2018 User-Level Thread Scheduling on Linux, 2013 Statically Recompiling NES Games into Native Executables, 2013 Fast Enough VMs in Fast Enough Time, 2012. How PyPy works and how you can use it to quickly build a JIT compiler.</description>
+      <description>Of Active Interest Collection of articles from industry about things Tricks for mixed integer programming The Rest Links to Some of my Projects xkcd feed with captions Compilers and Runtime Environments WebAssembly for Edge Computing: @Cloudflare, @Fastly Mini-series on JVM internals, 2018 User-Level Thread Scheduling on Linux, 2013 Statically Recompiling NES Games into Native Executables, 2013 Fast Enough VMs in Fast Enough Time, 2012. How PyPy works and how you can use it to quickly build a JIT compiler.</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@
       
       <guid>https://uluyol.xyz/notes/information-about-industry/</guid>
       <description>This page contains various articles about industry that could be useful from a research standpoint. I am collecting articles about things like hardware specs, application architectures, and failures that caused service downtime.
-Hardware Specs  Cloudflare  2013 2018   Stack Exchange  2016    Application Design  Internet Native Applications - Cloudflare Dropbox erasure coding data acros data centers Hashicorp on why people want multi-cloud deployments Reddit.</description>
+Hardware Specs Cloudflare 2013 2018 Stack Exchange 2016 Application Design Internet Native Applications - Cloudflare Dropbox erasure coding data acros data centers Hashicorp on why people want multi-cloud deployments Reddit.com architecture and my thoughts Incident Reports Oct 2018 Github incident involving automatic primary election and async replication Internet Statistics Cloudflare has some numbers on Black Friday traffic Unstructured list of links I ran into about various WAN-related statistics.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ Hardware Specs  Cloudflare  2013 2018   Stack Exchange  2016    Application Desi
       
       <guid>https://uluyol.xyz/notes/tricks-for-mixed-integer-programming/</guid>
       <description>This page contains various transformations I have found useful for producing MIP formulations. Many of these can be found spread on other websites as well. I will try to be consistent about notation: a, b, c, &amp;hellip; will to refer to binary variables while x, y, z, &amp;hellip; will refer to integer variables unless otherwise specified. Syntax follows the CPLEX LP file format.
-Contents  Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant  Transformations Boolean Operations  To make c = a AND b</description>
+Contents Boolean Operations At Most One is True Product of Binary and (Bounded) Integer Variables (Bounded) Integer Comparison Result (Bounded) Integer Comparison Bound Rounded Up Division by Constant Rounded Down Division by Constant Transformations Boolean Operations To make c = a AND b</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@ Contents  Boolean Operations At Most One is True Product of Binary and (Bounded)
       <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>https://uluyol.xyz/notes/device-meta-output/</guid>
-      <description>Width Height Device-Pixel-Ratio User-Agent   document.getElementById(&#34;meta-devwidth&#34;).innerHTML = window.screen.width; document.getElementById(&#34;meta-devheight&#34;).innerHTML = window.screen.height; document.getElementById(&#34;meta-devpixelratio&#34;).innerHTML = window.devicePixelRatio; document.getElementById(&#34;meta-useragent&#34;).innerHTML = navigator.userAgent;  </description>
+      <description> Width Height Device-Pixel-Ratio User-Agent </description>
     </item>
     
   </channel>

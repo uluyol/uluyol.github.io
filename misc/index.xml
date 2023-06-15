@@ -14,7 +14,7 @@
       
       <guid>https://uluyol.xyz/misc/caesar-cipher/</guid>
       <description>A simple Caesar (shift) cipher implementation for games or puzzles. This should not be used for any secure application. No data is sent to any server&amp;mdash;it works entirely on your machine.
-function trans(shift, c) { const ca = &#39;a&#39;.charCodeAt(0); const cz = &#39;z&#39;.charCodeAt(0); const cA = &#39;A&#39;.charCodeAt(0); const cZ = &#39;Z&#39;.charCodeAt(0); const c0 = &#39;0&#39;.charCodeAt(0); const c9 = &#39;9&#39;.charCodeAt(0); var code = c.charCodeAt(0); var lower = ca; var upper = cz; if ((ca Encode Decode | Shift (can be negative)   x</description>
+Encode Decode | Shift (can be negative) x</description>
     </item>
     
   </channel>
