@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" /><title>Basque Cheesecake - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/me/20220915-cv.pdf">CV</a>
+	<a href="/blog/">Blog</a>
+	
+	<a href="/blog/index.xml">RSS</a>
+</div>
+
+		<div class="title-text">
+			<h1>Basque Cheesecake</h1>
+			<time class="post-date" datetime=" 2023-13-09">Sep 13, 2023</time>
+
+			<div class="orig-src">
+				This recipe was originally posted at <a href="https://morocooked.com/easy-and-delicious-basque-cheesecake-naturally-gluten-free/">morocooked.com</a>.
+			</div>
+		</div>
+
+		<div class="content">
+			<p>Easy and tasty dessert. Not too sweet and very light for a cheesecake.</p>
+<ul class="ingredients">
+<li class="txt-cream-cheese">1 &frac12; lbs cream cheese</li>
+<li class="txt-sugar">1 &frac12; cups sugar</li>
+<li class="txt-eggs">5 eggs</li>
+<li class="txt-cream">&frac12; cups heavy cream</li>
+<li class="txt-salt">&frac12; tsp salt</li>
+<li class="txt-vanilla">1 tsp vanilla extract</li>
+</ul>
+<h2 id="directions">Directions</h2>
+<ol>
+<li>Let cold ingredients warm to room temperature, if possible.</li>
+<li>Pre-heat oven to 475°F convection with rack in the middle of the oven.</li>
+<li>Line a 7-inch cake pan with parchment paper, making sure that parchment fully covers all the sides of the pan.</li>
+<li>Add softened <span class="txt-cream-cheese">cream cheese</span> and <span class="txt-sugar">sugar</span> to a large mixing bowl. Mix until smooth and no lumps remain.</li>
+<li>Crack the five <span class="txt-eggs">eggs</span> into a bowl. Whisk until completely smooth.</li>
+<li>Slowly add the beaten <span class="txt-eggs">eggs</span> to the cream cheese mixture. Fold and stir constantly, until fully combined and the batter is completely smooth.</li>
+<li>Add the <span class="txt-cream">cream</span>, <span class="txt-salt">salt</span>, and <span class="txt-vanilla">vanilla</span>. Stir until completely smooth.</li>
+<li>Pour the batter into the prepared pan. Tap the bottom of the pan to the countertop to pop any air bubbles.</li>
+<li>Bake in the oven for 45-55 minutes or until the top is very dark (if using a <em>9-inch pan</em>, check after 30-35 minutes instead). The edges should be set but the center should still be very jiggly. The center of the cake should read about somewhere around 155°F (68°C) for a softer center. Remove from the oven. Let cool at room temperature for a few hours then cover and cool in the fridge for at least an hour before slicing.</li>
+</ol>
+
+		</div>
+	</div><script>
+  function visitAll(elems, func) {
+    for (let e of elems) {
+      func(e);
+      visitAll(e.children, func)
+    }
+  }
+
+  function visitIngredientElements(elems, func) {
+    visitAll(elems, (elem) => {
+      for (let cl of elem.classList) {
+        if (!cl.startsWith("txt-")) {
+          continue
+        }
+        func(elem, cl)
+        break;
+      }
+    });
+  }
+
+  function scriptifyIngredients() {
+    let debugScriptify = false;
+
+    let ingredientsElem = document.getElementsByClassName("ingredients");
+    let numIngredients = 0;
+    visitIngredientElements(ingredientsElem, (elem, cl) => {
+      numIngredients++;
+    });
+    if (debugScriptify) {
+      console.log("found", numIngredients, "ingredients");
+    }
+
+    let nextId = 0;
+    visitIngredientElements(ingredientsElem, (elem, cl) => {
+      let id = nextId;
+      nextId++;
+
+      let hue = Math.round(360 * (id / numIngredients));
+      let color = "hsl(" + hue + ",100%,33%)";
+
+      if (debugScriptify) {
+        console.log("scriptify", cl, "assigned color", color);
+      }
+
+      elem.style.cursor = "pointer";
+      let newlyClicked = true;
+      let toUpdate = document.getElementsByClassName(cl)
+      elem.addEventListener('click', (ev) => {
+        if (debugScriptify) {
+          console.log("click", elem, newlyClicked)
+        }
+        for (let e of toUpdate) {
+          if (newlyClicked) {
+            e.style.color = color;
+            e.style.textDecoration = "line-through";
+          } else {
+            e.style.color = "";
+            e.style.textDecoration = "";
+          }
+        }
+        newlyClicked = !newlyClicked;
+      });
+    });
+  }
+
+  scriptifyIngredients();
+</script>
+</body>
+
+</html>
