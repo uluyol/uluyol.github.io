@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" /><title>LA Galbi (Korean Short Ribs) - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/me/20220915-cv.pdf">CV</a>
+	<a href="/blog/">Blog</a>
+	<a href="/recipes/">Recipes</a>
+	
+	<a href="/blog/index.xml">RSS</a>
+</div>
+
+		<div class="title-text">
+			<h1>LA Galbi (Korean Short Ribs)</h1>
+			<time class="post-date" datetime=" 2025-18-08">Aug 18, 2025</time>
+
+			<div class="orig-src">
+				This recipe was originally posted at <a href="https://www.youtube.com/shorts/RylCLmXpozo">www.youtube.com</a>.
+			</div>
+		</div>
+
+		<div class="content">
+			<p>This dish is low effort and tastes great. You will need a food processor.</p>
+<p>Originally, I tried a somewhat <a href="https://www.seriouseats.com/grilled-beef-galbi-korean-style-marinated-short-ribs">complex recipe</a>
+(substituting maple syrup for mirin, since mirin contains alcohol)
+and it got me hooked.
+But I now prefer this simpler recipe from <em>POV Husband</em> since it requires less
+ingredients (both number and volume) while offering a very similar taste.</p>
+<ul class="ingredients">
+<li class="txt-ribs">4 lbs of <a href="https://en.wikipedia.org/wiki/Short_ribs#Types_of_short_ribs">beef short ribs</a></li>
+<li class="txt-pear">1 whole korean pear (often called asian pear)</li>
+<li class="txt-garlic">10 garlic cloves</li>
+<li class="txt-ginger">1 tbsp fresh ginger</li>
+<li class="txt-onion">&frac12; onion</li>
+<li class="txt-sugar">&frac12; cup brown sugar</li>
+<li class="txt-soy-sauce">&frac12; cup soy sauce</li>
+<li class="txt-oil">1 tbsp sesame oil</li>
+<li class="txt-pepper">&frac12; tbsp black pepper</li>
+<li class="txt-sesame-seeds">(Optional) sesame seeds to garnish</li>
+</ul>
+<h2 id="directions">Directions</h2>
+<ol>
+<li>Peel the <span class="txt-pear">pear</span> and cut into chunks the food processor can handle.</li>
+<li>Peel and cut the <span class="txt-ginger">ginger</span> into thin slices against the grain.
+This will prevent long fibers from making it to the final dish.</li>
+<li>Blend the marinade ingredients (<span class="txt-pear">pear</span>,
+<span class="txt-garlic">garlic</span>, <span class="txt-ginger">ginger</span>,
+<span class="txt-onion">onion</span>, <span class="txt-sugar">brown sugar</span>,
+<span class="txt-soy-sauce">soy sauce</span>, <span class="txt-oil">sesame oil</span>, and
+<span class="txt-pepper">black pepper</span>) in a food processor.</li>
+<li>Add the marinade to the <span class="txt-ribs">meat</span>, making sure to fully cover every rib.</li>
+<li>Aim to marinate the <span class="txt-ribs">meat</span> for at least 6 hours. Longer the better.</li>
+<li>Grill the <span class="txt-ribs">ribs</span> on a medium heat.</li>
+<li>(Optional) Add <span class="txt-sesame-seeds">sesame seeds</span> before serving.</li>
+</ol>
+
+		</div>
+	</div><script>
+  function visitAll(elems, func) {
+    for (let e of elems) {
+      func(e);
+      visitAll(e.children, func)
+    }
+  }
+
+  function visitIngredientElements(elems, func) {
+    visitAll(elems, (elem) => {
+      for (let cl of elem.classList) {
+        if (!cl.startsWith("txt-")) {
+          continue
+        }
+        func(elem, cl)
+        break;
+      }
+    });
+  }
+
+  function scriptifyIngredients() {
+    let debugScriptify = false;
+
+    let ingredientsElem = document.getElementsByClassName("ingredients");
+    let numIngredients = 0;
+    visitIngredientElements(ingredientsElem, (elem, cl) => {
+      numIngredients++;
+    });
+    if (debugScriptify) {
+      console.log("found", numIngredients, "ingredients");
+    }
+
+    let nextId = 0;
+    visitIngredientElements(ingredientsElem, (elem, cl) => {
+      let id = nextId;
+      nextId++;
+
+      let hue = Math.round(360 * (id / numIngredients));
+      let color = "hsl(" + hue + ",100%,33%)";
+
+      if (debugScriptify) {
+        console.log("scriptify", cl, "assigned color", color);
+      }
+
+      elem.style.cursor = "pointer";
+      let newlyClicked = true;
+      let toUpdate = document.getElementsByClassName(cl)
+      elem.addEventListener('click', (ev) => {
+        if (debugScriptify) {
+          console.log("click", elem, newlyClicked)
+        }
+        for (let e of toUpdate) {
+          if (newlyClicked) {
+            e.style.color = color;
+            e.style.textDecoration = "line-through";
+          } else {
+            e.style.color = "";
+            e.style.textDecoration = "";
+          }
+        }
+        newlyClicked = !newlyClicked;
+      });
+    });
+  }
+
+  scriptifyIngredients();
+</script>
+</body>
+
+</html>
