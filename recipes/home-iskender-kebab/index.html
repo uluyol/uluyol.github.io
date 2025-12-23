@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" /><title>Homemade Iskender Kebab - Muhammed Uluyol</title><meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
+<link href="/css/libertine/font.css" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet" media="screen">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+
+
+</head>
+
+<body class="nav-closed">
+	<div id="main">
+		<div class="nav">
+	<a href="/">Home</a>
+	<a href="https://github.com/uluyol/">GitHub</a>
+	<a href="/me/20220915-cv.pdf">CV</a>
+	<a href="/blog/">Blog</a>
+	<a href="/recipes/">Recipes</a>
+	
+	<a href="/blog/index.xml">RSS</a>
+</div>
+
+		<div class="title-text">
+			<h1>Homemade Iskender Kebab</h1>
+			<time class="post-date" datetime=" 2025-22-12">Dec 22, 2025</time>
+
+			<div class="orig-src">
+				This recipe was originally posted at <a href="https://www.youtube.com/watch?v=6mz6A4m_-us">www.youtube.com</a>.
+			</div>
+		</div>
+
+		<div class="content">
+			<p>This recipe replicates the famous Bursa Iskender Kebab at home by creating a &ldquo;ground meat döner&rdquo; texture without a vertical rotisserie. By pressing the meat mixture into paper-thin rolls and baking them at a high temperature, you achieve the characteristic texture of thin döner slices. It is served over warm pita bread, drenched in a tomato-butter sauce, and finished with sizzling brown butter. Typically, it eaten with yogurt and bulgur on the side.</p>
+<h2 id="the-döner-meat">The Döner Meat</h2>
+<ul class="ingredients">
+<li class="txt-beef">750g ground beef (rib eye is best, but not required)</li>
+<li class="txt-lamb">250g ground lamb</li>
+<li class="txt-onion">50g onion (approx. &frac12; onion, 5% of the meat by weight)</li>
+<li class="txt-salt">15g salt</li>
+<li class="txt-pepper">1 tsp black pepper</li>
+</ul>
+<ol>
+<li>Puree the <span class="txt-onion">onion</span> in a food processor. When done, it should be watery and have no chunks.</li>
+<li>In a mixing bowl, combine <span class="txt-beef">all</span> <span class="txt-lamb">of</span> <span class="txt-onion">the</span> <span class="txt-salt">ingredients</span> <span class="txt-pepper">together</span>.</li>
+<li>Knead the mixture for several minutes until the ingredients are evenly distributed and the meat becomes sticky and elastic.</li>
+<li>Preheat your oven to 400°F with the fan on.</li>
+<li>Take a walnut-sized balls of the meat mixture, and place 7–8 balls between two square sheets of parchment paper.</li>
+<li>Flatten and combine the balls together using a rolling pin. Peel off the top sheet and trim any thick irregular edges if necessary.</li>
+<li>Repeat this process for all the meat.</li>
+<li>Roll the parchment paper still holding the meat and place the rolls onto a baking tray.</li>
+<li>Bake for approximately 20 minutes, or until the meat is browned and cooked through.</li>
+</ol>
+<h2 id="the-sauce">The Sauce</h2>
+<ul class="ingredients">
+<li class="txt-oil">4 tbsp olive oil</li>
+<li class="txt-paste">4 heaping tbsp tomato paste</li>
+<li class="txt-water">2&frac12; cups water</li>
+<li class="txt-salt-sauce">1 pinch of salt</li>
+</ul>
+<ol>
+<li>Heat the <span class="txt-oil">olive oil</span> in a saucepan over medium heat.</li>
+<li>Add the <span class="txt-paste">tomato paste</span>  and <span class="txt-salt-sauce">salt</span> before stirring for 1–2 minutes. Continue until it starts to become fragrant. Do not overcook the paste.</li>
+<li>Add the <span class="txt-water">water</span> and whisk together into a soupy consistency.</li>
+<li>Bring to a boil, then reduce heat to a simmer.</li>
+</ol>
+<h2 id="assembly--serving">Assembly &amp; Serving</h2>
+<ul class="ingredients">
+<li class="txt-pita">Pita bread (cubed)</li>
+<li class="txt-yogurt">Thick or strained yogurt</li>
+<li class="txt-butter-top">&frac12; a stick of melted butter</li>
+<li class="txt-garnish">(Optional) roasted tomatoes, roasted peppers, pickles</li>
+</ul>
+<ol>
+<li>Warm the <span class="txt-pita">pita bread cubes</span> slightly (in the oven or a pan).</li>
+<li>Spread the <span class="txt-pita">pita</span> on a serving plate.</li>
+<li>Cut the roasted döner meat into irregular strips or bite-sized pieces and pile them generously over the bread.</li>
+<li>Pour the hot tomato sauce and <span class="txt-yogurt">yogurt</span> over the meat and bread.</li>
+<li>Garnish with the <span class="txt-garnish">tomatoes, peppers, and pickles</span>.</li>
+<li>Finally, pour the hot <span class="txt-butter-top">melted butter</span> over the entire dish immediately before serving.</li>
+</ol>
+
+		</div>
+	</div><script>
+  function visitAll(elems, func) {
+    for (let e of elems) {
+      func(e);
+      visitAll(e.children, func)
+    }
+  }
+
+  function visitIngredientElements(elems, func) {
+    visitAll(elems, (elem) => {
+      for (let cl of elem.classList) {
+        if (!cl.startsWith("txt-")) {
+          continue
+        }
+        func(elem, cl)
+        break;
+      }
+    });
+  }
+
+  function scriptifyIngredients() {
+    let debugScriptify = false;
+
+    let ingredientsElem = document.getElementsByClassName("ingredients");
+    let numIngredients = 0;
+    visitIngredientElements(ingredientsElem, (elem, cl) => {
+      numIngredients++;
+    });
+    if (debugScriptify) {
+      console.log("found", numIngredients, "ingredients");
+    }
+
+    let nextId = 0;
+    visitIngredientElements(ingredientsElem, (elem, cl) => {
+      let id = nextId;
+      nextId++;
+
+      let hue = Math.round(360 * (id / numIngredients));
+      let color = "hsl(" + hue + ",100%,33%)";
+
+      if (debugScriptify) {
+        console.log("scriptify", cl, "assigned color", color);
+      }
+
+      elem.style.cursor = "pointer";
+      let newlyClicked = true;
+      let toUpdate = document.getElementsByClassName(cl)
+      elem.addEventListener('click', (ev) => {
+        if (debugScriptify) {
+          console.log("click", elem, newlyClicked)
+        }
+        for (let e of toUpdate) {
+          if (newlyClicked) {
+            e.style.color = color;
+            e.style.textDecoration = "line-through";
+          } else {
+            e.style.color = "";
+            e.style.textDecoration = "";
+          }
+        }
+        newlyClicked = !newlyClicked;
+      });
+    });
+  }
+
+  scriptifyIngredients();
+</script>
+</body>
+
+</html>
